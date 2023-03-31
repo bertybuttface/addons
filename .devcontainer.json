@@ -1,5 +1,5 @@
 {
-  "name": "Example Home Assistant add-on repository",
+  "name": "Berty Buttfaces Home Assistant add-on repository",
   "image": "ghcr.io/home-assistant/devcontainer:addons",
   "appPort": ["7123:8123", "7357:4357"],
   "postStartCommand": "bash devcontainer_bootstrap",
