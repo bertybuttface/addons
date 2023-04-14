@@ -12,7 +12,7 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # Install deps
-RUN apt-get update && apt-get install unzip
+RUN apk add unzip
 
 # Create identities dir
 RUN mkdir /identities
