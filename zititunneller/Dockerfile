@@ -12,7 +12,7 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # Install deps
-RUN apk add unzip
+RUN apk add curl unzip
 
 # Create identities dir
 RUN mkdir /identities
