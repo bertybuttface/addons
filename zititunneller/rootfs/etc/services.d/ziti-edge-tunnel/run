@@ -1,0 +1,5 @@
+#!/command/with-contenv bashio
+
+# Run ziti-edge-tunnel
+bashio::log.info 'Starting ziti-edge-tunnel...'
+exec /opt/ziti-edge-tunnel run-host --verbose ${LOG_LEVEL} --identity /identities/default.json

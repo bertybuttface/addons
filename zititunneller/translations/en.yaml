@@ -1,0 +1,9 @@
+---
+configuration:
+  log_level:
+    name: Log level
+    description: The amount of logging the add-on should do.
+  service_name:
+    name: JSON Web Token for Authentification
+    description: >-
+      The JWT (JSON Web Token) for the authentication and connection to the ZITI network.
