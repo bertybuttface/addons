@@ -18,6 +18,16 @@ This repository contains the following add-ons
 
 _Skip sponsor segments in YouTube videos playing on an Apple TV._
 
+### [ZitiTunneller add-on](./isponsorblocktv)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+![Supports armhf Architecture][armhf-shield]
+![Supports armv7 Architecture][armv7-shield]
+![Supports i386 Architecture][i386-shield]
+
+_Connect to a Ziti overlay network._
+
 <!--
 
 Notes to developers after forking or using the github template feature:

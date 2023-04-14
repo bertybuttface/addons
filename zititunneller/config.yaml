@@ -17,4 +17,4 @@ options:
 schema:
   log_level: list(error|warning|info|debug)
   jwt: str
-# image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"
+image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"
