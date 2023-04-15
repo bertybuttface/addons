@@ -1,5 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.3
+
+- Make JWT optional to improve account reuse.
+- Add some additional logging
+
 ## 1.0.2
 
 - Switch to Debian base image.

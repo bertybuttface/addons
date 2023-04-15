@@ -21,5 +21,8 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "files.trimTrailingWhitespace": true
-  }
+},
+"features": {
+	"ghcr.io/dhoeric/features/hadolint:1": {}
+}
 }

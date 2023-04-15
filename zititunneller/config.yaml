@@ -13,7 +13,7 @@ arch:
   - i386
 options:
   log_level: info
-  jwt: ""
+  jwt: null
 schema:
   log_level: list(error|warning|info|debug)
 image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"
