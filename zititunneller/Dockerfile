@@ -1,6 +1,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM}
 
 # Build arguments
 ARG BUILD_ARCH
@@ -11,30 +12,23 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
-# Install deps
-RUN apk add curl unzip
-
-# Create identities dir
-RUN mkdir /identities
-
 # Copy root filesystem
 COPY rootfs /
 
-# Set working directory
 WORKDIR /opt
 
-# Setup base
-RUN \
-    if [ -z "${BUILD_ARCH}" ]; then export BUILD_ARCH=$(uname -m); fi \
+# Setup
+RUN apt-get update && apt-get -y install unzip && mkdir /identities \
+&& if [ -z "${BUILD_ARCH}" ]; then export BUILD_ARCH=$(uname -m); fi \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     && if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm"; fi \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi \
     && if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="x86_64"; fi \
     && if [ "${BUILD_ARCH}" = "i386" ]; then ARCH="x86_64"; fi \
-    && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/latest/download/ziti-edge-tunnel-Linux_${ARCH}.zip -o ./ziti-edge-tunnel-Linux_${ARCH}.zip \
-    && unzip ./ziti-edge-tunnel-Linux_${ARCH}.zip \
-    && rm ./ziti-edge-tunnel-Linux_${ARCH}.zip \
-    && chmod -c +x ./ziti-edge-tunnel 
+    && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/latest/download/ziti-edge-tunnel-Linux_${ARCH}.zip -o /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
+    && unzip /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
+    && rm /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
+    && chmod -c +x /opt/ziti-edge-tunnel
 
 # Labels
 LABEL \

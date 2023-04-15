@@ -23,6 +23,12 @@ case "$(bashio::config 'log_level')" in
     ;;
 esac
 
+# Check if ziti-edge-tunnel exists and is executable
+if [ ! -x /opt/ziti-edge-tunnel ]; then
+  echo "Error: /opt/ziti-edge-tunnel not found or not executable"
+  exit 1
+fi
+
 # Enroll identity
 echo "${JWT}" > /identities/default.jwt
 /opt/ziti-edge-tunnel enroll --jwt /identities/default.jwt --identity /identities/default.json
