@@ -1,5 +1,24 @@
 #!/command/with-contenv bashio
 
+# Translate log level
+case "$(bashio::config 'log_level')" in
+  error)
+    LOG_LEVEL="1"
+    ;;
+  warning)
+    LOG_LEVEL="2"
+    ;;
+  info)
+    LOG_LEVEL="3"
+    ;;
+  debug)
+    LOG_LEVEL="4"
+    ;;
+  *)
+    LOG_LEVEL="3"
+    ;;
+esac
+
 # Run ziti-edge-tunnel
 bashio::log.info 'Starting ziti-edge-tunnel...'
 exec /opt/ziti-edge-tunnel run-host --verbose ${LOG_LEVEL} --identity /identities/default.json

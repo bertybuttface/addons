@@ -1,6 +1,6 @@
 ---
 name: ziti-tunneller
-version: 1.0.3
+version: 1.0.4
 slug: zititunneller
 description: Tunnels the homeassistant dashboard into your openziti zero trust network.
 url: https://github.com/bertybuttface/addons/zititunneller

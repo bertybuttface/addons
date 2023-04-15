@@ -4,25 +4,6 @@
 # Fetch jwt from config
 JWT="$(bashio::config 'jwt')"
 
-# Translate log level
-case "$(bashio::config 'log_level')" in
-  error)
-    LOG_LEVEL="1"
-    ;;
-  warning)
-    LOG_LEVEL="2"
-    ;;
-  info)
-    LOG_LEVEL="3"
-    ;;
-  debug)
-    LOG_LEVEL="4"
-    ;;
-  *)
-    LOG_LEVEL="3"
-    ;;
-esac
-
 # Check if ziti-edge-tunnel exists and is executable
 if [ ! -x /opt/ziti-edge-tunnel ]; then
   echo "Error: /opt/ziti-edge-tunnel not found or not executable"
@@ -42,6 +23,7 @@ else
     echo "Stored identity found at /identities/default.json"
   else
     echo "Error: No stored identity found at /identities/default.json" >&2
+    ls /identities
     exit 1
   fi
 fi

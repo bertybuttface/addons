@@ -2,6 +2,10 @@
 
 ## 1.0.3
 
+- Fix for script exiting prematurely
+
+## 1.0.3
+
 - Make JWT optional to improve account reuse.
 - Add some additional logging
 
