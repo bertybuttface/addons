@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the whosatmyfeeder service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+bashio::log.info "Starting..."
+
+## Run your program
+python3 -u /usr/app/speciesid.py
