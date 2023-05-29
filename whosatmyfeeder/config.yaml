@@ -17,4 +17,3 @@ map:
 options:
 schema:
 image: "ghcr.io/bertybuttface/{arch}-addon-whosatmyfeeder"
-host_network: false
