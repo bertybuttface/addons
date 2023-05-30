@@ -8,12 +8,10 @@ RUN \
     curl -sSLf -o /usr/bin/tempio \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
-RUN apk add gcc musl-dev build-base linux-headers libffi-dev rust cargo openssl-dev git avahi
+RUN apk add gcc musl-dev build-base linux-headers git
 
 # Copy root filesystem
 COPY rootfs /
-
-ENV PIP_NO_CACHE_DIR=off iSPBTV_docker=True
 
 RUN mkdir /usr/app
 WORKDIR /usr/app
@@ -21,5 +19,5 @@ RUN git clone https://github.com/mmcc-xx/WhosAtMyFeeder .
 
 RUN pip3 install --upgrade pip setuptools-rust wheel && \
     pip3 install -r requirements.txt && \
-    apk del gcc musl-dev build-base linux-headers libffi-dev rust cargo openssl-dev git && \
+    apk del gcc musl-dev build-base linux-headers git && \
     rm -rf /usr/app/.cache /usr/app/.cargo
