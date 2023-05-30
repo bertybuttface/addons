@@ -14,6 +14,4 @@ ingress: true
 init: false
 map:
   - share:rw
-options:
-schema:
 image: "ghcr.io/bertybuttface/{arch}-addon-whosatmyfeeder"
