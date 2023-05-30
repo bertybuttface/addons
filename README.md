@@ -16,6 +16,14 @@ This repository contains the following add-ons
 
 _Skip sponsor segments in YouTube videos playing on an Apple TV._
 
+### [Whos At My Feeder](./whosatmyfeeder)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+![Supports i386 Architecture][i386-shield]
+
+_Acts as sidecar to Frigate to identify the species of the birds that Frigate detects._
+
 ### [ZitiTunneller add-on](./isponsorblocktv)
 
 ![Supports aarch64 Architecture][aarch64-shield]

@@ -17,7 +17,7 @@ RUN mkdir /usr/app
 WORKDIR /usr/app
 RUN git clone https://github.com/mmcc-xx/WhosAtMyFeeder .
 
-RUN pip3 install --upgrade pip setuptools-rust wheel && \
+RUN pip3 install --upgrade pip && \
     pip3 install -r requirements.txt && \
     apk del gcc musl-dev build-base linux-headers git && \
     rm -rf /usr/app/.cache /usr/app/.cargo
