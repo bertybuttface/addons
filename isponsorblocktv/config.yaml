@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: iSponsorBlockTV add-on
-version: "1.0.1"
+version: "1.0.2"
 slug: isponsorblocktv
 description: Skip sponsor segments in YouTube videos playing on an Apple TV.
 url: "https://github.com/bertybuttface/addons/tree/main/isponsorblocktv"
@@ -17,6 +17,7 @@ options:
     - name: null
       identifier: null
       airplay_credentials: null
+  channel_whitelist: []
   skip_categories:
     - "sponsor"
 schema:
@@ -25,6 +26,9 @@ schema:
     - name: "str?"
       identifier: "str"
       airplay_credentials: "str"
+  channel_whitelist:
+    - id: "str"
+    - name: "str"
   skip_categories:
     - match(^.*(sponsor|selfpromo|exclusive_access|interaction|poi_highlight|intro|outro|preview|filler|music_offtopic).*$)
 image: "ghcr.io/bertybuttface/{arch}-addon-isponsorblocktv"
