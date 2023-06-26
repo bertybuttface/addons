@@ -18,6 +18,7 @@ options:
       identifier: null
       airplay_credentials: null
   channel_whitelist: []
+  local_addr: "127.0.0.1:0"
   skip_categories:
     - "sponsor"
 schema:
@@ -29,6 +30,7 @@ schema:
   channel_whitelist:
     - id: "str"
     - name: "str"
+  local_addr: "str?"
   skip_categories:
     - match(^.*(sponsor|selfpromo|exclusive_access|interaction|poi_highlight|intro|outro|preview|filler|music_offtopic).*$)
 image: "ghcr.io/bertybuttface/{arch}-addon-isponsorblocktv"
