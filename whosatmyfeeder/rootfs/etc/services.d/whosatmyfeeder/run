@@ -5,5 +5,10 @@
 # ==============================================================================
 bashio::log.info "Starting..."
 
+## Convert the config file from JSON to YAML
+bashio::log.info "Converting config from JSON to YAML..."
+python3 -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < /data/options.json > /data/config.yaml
+
 ## Run your program
-python3 -u /usr/app/speciesid.py
+bashio::log.info "Using config file at ${CONFIG_PATH}"
+exec python3 -u /usr/app/speciesid.py

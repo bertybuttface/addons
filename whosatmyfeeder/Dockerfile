@@ -23,7 +23,9 @@ COPY rootfs /
 
 RUN mkdir /usr/app
 WORKDIR /usr/app
-RUN git clone https://github.com/mmcc-xx/WhosAtMyFeeder .
+RUN git clone https://github.com/bertybuttface/WhosAtMyFeeder .
+
+ENV CONFIG_PATH="/data/config.yaml"
 
 RUN pip3 install --no-cache-dir -r requirements.txt && \
     apt-get remove -y git && apt-get autoremove -y && \
