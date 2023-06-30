@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.8
+
+- Update upstream to fix another db path issue.
+
 ## 1.0.7
 
 - Fix default path for model.tflite to be absolute
