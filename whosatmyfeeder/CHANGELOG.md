@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.1.10
+
+- Fix issue with ingress port
+
 ## 1.0.9
 
 - Update upstream to fix another config issue.

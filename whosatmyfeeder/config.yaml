@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: WhosAtMyFeeder add-on
-version: "1.0.9"
+version: "1.0.10"
 slug: whosatmyfeeder
 description: This app acts as sidecar to Frigate to identify the species of the birds that Frigate detects.
 url: "https://github.com/bertybuttface/addons/tree/main/whosatmyfeeder"
@@ -8,6 +8,7 @@ arch:
   - aarch64
   - amd64
 ingress: true
+ingress_port: 7767
 init: false
 map:
   - share:rw
