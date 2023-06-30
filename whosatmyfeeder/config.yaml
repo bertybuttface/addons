@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: WhosAtMyFeeder add-on
-version: "1.0.6"
+version: "1.0.7"
 slug: whosatmyfeeder
 description: This app acts as sidecar to Frigate to identify the species of the birds that Frigate detects.
 url: "https://github.com/bertybuttface/addons/tree/main/whosatmyfeeder"
@@ -24,8 +24,11 @@ options:
       - birdcam
     object: bird
   classification:
-    model: model.tflite
+    model: /usr/app/model.tflite
+    name_database: /usr/app/birdnames.db
     threshold: 0.7
+  database:
+    path: /data/speciesid.db
   webui:
     port: 7767
     host: "0.0.0.0"
@@ -42,7 +45,10 @@ schema:
     object: "str"
   classification:
     model: "str"
+    name_database: "str"
     threshold: "float"
+  database:
+    path: "str"
   webui:
     port: "int"
     host: "str"
