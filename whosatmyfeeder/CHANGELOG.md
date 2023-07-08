@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.12
+
+- Fix more relative path issues
+
 ## 1.0.11
 
 - Fix static files issue.
