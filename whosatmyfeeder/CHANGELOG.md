@@ -1,6 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
-## 1.1.10
+## 1.0.11
+
+- Fix static files issue.
+
+## 1.0.10
 
 - Fix issue with ingress port
 
