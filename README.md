@@ -8,6 +8,13 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
 This repository contains the following add-ons
 
+## [Matrix NG add-on](./matrix-ng)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+_Matrix chat homeservers and bridges._
+
 ### [iSponsorBlockTV add-on](./isponsorblocktv)
 
 ![Supports aarch64 Architecture][aarch64-shield]

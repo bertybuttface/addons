@@ -1,0 +1,22 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+
+## Run your program
+cd /usr/app
+
+bashio::log.info "create-maubridges is waiting for Dendrite at http://localhost:8008"
+until curl -s http://localhost:8008 > /dev/null; do sleep 1; done
+bashio::log.info "create-maubridges is connected to Dendrite.."
+
+bashio::log.info "Creating maubridges..."
+for element in $(bashio::config 'maubridges'); do
+    bashio::log.info "Creating maubridge for $element..."
+    cp -r /etc/s6-overlay/s6-rc.d/bridge-mau-template /etc/s6-overlay/s6-rc.d/bridge-$element
+    sed -i "s/{{ mautrix_name }}/$element/g" /etc/s6-overlay/s6-rc.d/bridge-$element/run
+    sed -i "s/{{ mautrix_name }}/$element/g" /etc/s6-overlay/s6-rc.d/bridge-$element/finish
+    chmod +x /etc/s6-overlay/s6-rc.d/bridge-$element/*
+    touch /etc/s6-overlay/s6-rc.d/user/contents.d/bridge-$element
+    ln -s /etc/s6-overlay/s6-rc.d/bridge-$element /run/service/bridge-$element
+    bashio::log.info "Created maubridge for $element..."
+done
+bashio::log.info "Created maubridges..."

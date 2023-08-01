@@ -1,0 +1,17 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+
+## Run your program
+cd /usr/app
+
+if ! bashio::fs.file_exists "/data/created_dendrite_users"; then
+    bashio::log.info "create-users is waiting for Dendrite at http://localhost:8008"
+    until curl -s http://localhost:8008 > /dev/null; do sleep 1; done
+    bashio::log.info "create-users is connected to Dendrite.."
+    touch /data/created_dendrite_users
+    bashio::log.info "Creating dendrite users..."
+    create-account --config /data/homeserver-dendrite.yaml -username testuser -password Zav1oomoOoy6u
+    bashio::log.info "Created dendrite users..."
+else
+    bashio::log.info "Service create-users only runs once, not running again."
+fi

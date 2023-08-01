@@ -1,0 +1,17 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Start the web service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+MANHOLE=$(bashio::config 'manhole')
+if [ "${MANHOLE}" == "true" ]; then
+    bashio::log.info "Starting dev-manhole..."
+    # Run your program
+    miniserve /data
+else
+    bashio::log.info "dev-manhole disabled"
+     # run a dummy process to keep the container running
+    sleep infinity
+fi

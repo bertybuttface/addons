@@ -1,0 +1,53 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: "Matrix NG"
+version: "0.0.6"
+slug: "matrix_ng"
+description: >-
+  This add-on provides a Matrix server (either Dendrite or Conduit), a frontend (Element)
+  and includes mau-bridges to connect to external services
+url: "https://github.com/bertybuttface/addons/tree/main/matrix-ng"
+arch:
+  - "aarch64"
+  - "amd64"
+ingress: true
+init: false
+map:
+  - share:rw
+options:
+  manhole: false
+  server_name: "matrix.example.org"
+  disable_federation: false
+  hs_url: "http://localhost:8008"
+  is_url: "https://vector.im"
+  # registration_shared_secret: "your randomly generated long secret"
+  # private_key_pem_path: "/matrix/dendrite/private_key.pem"
+  # public_key_pem_path: "/matrix/dendrite/public_key.pem"
+  maubridges:
+    - "discord"
+    - "whatsapp"
+  maupybridges:
+    - "telegram"
+  telegram:
+    api_id: null
+    api_hash: null
+  postgres_max_connections: 400
+
+schema:
+  manhole: bool
+  server_name: str
+  disable_federation: bool
+  hs_url: str
+  is_url: str
+  # registration_shared_secret: str
+  # private_key_pem_path: str
+  # public_key_pem_path: str
+  maubridges: # discord|gmessages|signalgo|slack|whatsapp
+    - match(^.*(discord|whatsapp).*$)
+  maupybridges: # telegram
+    - match(^.*(telegram).*$)
+  telegram:
+    api_id: str
+    api_hash: str
+  postgres_max_connections: int
+image: "ghcr.io/bertybuttface/{arch}-addon-matrix-ng"
+host_network: true
