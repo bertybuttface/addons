@@ -1,10 +1,10 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Start the web service
+# Start client-element service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-bashio::log.info "Starting web..."
+bashio::log.info "Starting client-element..."
 
 export DEFAULT_HS_URL=$(bashio::config 'hs_url')
 export DEFAULT_IS_URL=$(bashio::config 'is_url')

@@ -22,7 +22,7 @@ ENV TARGET "${BUILD_ARCH}-unknown-linux-musl"
 ENV ELEMENT_VERSION 1.11.37
 RUN mkdir /src
 WORKDIR /src
-COPY ./web .
+COPY ./element .
 RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
     export TARGET="x86_64-unknown-linux-musl"; \
     fi \
@@ -31,7 +31,7 @@ RUN if [ "$BUILD_ARCH" = "amd64" ]; then \
     && mv "target/$TARGET/release/element" . \
     && strip element
 WORKDIR /
-COPY ./web/E95B7699E80B68A9EAD9A19A2BAA9B8552BD9047.key .
+COPY ./element/E95B7699E80B68A9EAD9A19A2BAA9B8552BD9047.key .
 RUN wget -qO element.tar.gz "https://github.com/vector-im/element-web/releases/download/v$ELEMENT_VERSION/element-v$ELEMENT_VERSION.tar.gz" \
     && wget -qO element.tar.gz.asc "https://github.com/vector-im/element-web/releases/download/v$ELEMENT_VERSION/element-v$ELEMENT_VERSION.tar.gz.asc" \
     && gpg --batch --import E95B7699E80B68A9EAD9A19A2BAA9B8552BD9047.key \

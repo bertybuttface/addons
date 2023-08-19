@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-# Start the web service
+# Start the dev-manhole service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
