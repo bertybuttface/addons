@@ -4,4 +4,4 @@ Dendrite is a second-generation Matrix homeserver written in Go. This Home Assis
 
 ## How to use
 
-You are going to need a Postgres Server, the easiest way to do that under Home Assistant is with this addon: https://github.com/Expaso/hassos-addon-timescaledb
+Postgres is built in, you should just configure and run. Backups are done through the home assistant backup tool.
