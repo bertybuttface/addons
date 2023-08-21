@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: "Matrix NG"
-version: "0.0.6"
+version: "0.0.7"
 slug: "matrix_ng"
 description: >-
   This add-on provides a Matrix server (either Dendrite or Conduit), a frontend (Element)

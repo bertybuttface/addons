@@ -75,7 +75,9 @@ RUN rm /usr/libexec/postgresql \
 RUN mkdir -p /run/postgresql \
     && chown -R postgres:postgres /run/postgresql \
     && mkdir -p /run/postgresql/extensions \
-    && chown -R postgres:postgres /run/postgresql/extensions
+    && chown -R postgres:postgres /run/postgresql/extensions \
+    && mkdir -p /tmp/pg_stat_tmp \
+    && chown -R postgres:postgres /tmp/pg_stat_tmp
 ENV S6_SERVICES_GRACETIME=50000 \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0
 
