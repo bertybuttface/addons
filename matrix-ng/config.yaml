@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: "Matrix NG"
-version: "0.0.6"
+version: "0.0.8"
 slug: "matrix_ng"
 description: >-
   This add-on provides a Matrix server (either Dendrite or Conduit), a frontend (Element)
@@ -28,8 +28,8 @@ options:
   maupybridges:
     - "telegram"
   telegram:
-    api_id: null
-    api_hash: null
+    api_id: ""
+    api_hash: ""
   postgres_max_connections: 400
 
 schema:
@@ -46,8 +46,8 @@ schema:
   maupybridges: # telegram
     - match(^.*(telegram).*$)
   telegram:
-    api_id: str
-    api_hash: str
+    api_id: str?
+    api_hash: str?
   postgres_max_connections: int
 image: "ghcr.io/bertybuttface/{arch}-addon-matrix-ng"
 host_network: true
