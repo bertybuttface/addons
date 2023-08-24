@@ -17,11 +17,29 @@ if [[ $(< ${version_file}) != $(bashio::addon.version) ]]; then
 	update=true
 fi
 
-# Start Postgres
-bashio::log.info "Starting PostgreSQL.."
-su - postgres -c "postgres -D ${postgres_data}" &
-postgres_pid=$!
-bashio::log.info "Started PostgreSQL.."
+# Start Postgres, retry with backoff
+bashio::log.info "Starting PostgreSQL..."
+retry=0
+max_retries=5
+sleep_time=5 # in seconds
+
+while [ $retry -lt $max_retries ]; do
+  su - postgres -c "postgres -D ${postgres_data}" &
+  postgres_pid=$!
+  sleep 1 # Give PostgreSQL a second to start
+
+  # Check if PostgreSQL is running
+  if ps -p $postgres_pid > /dev/null; then
+    bashio::log.info "Started PostgreSQL successfully."
+    exit 0
+  else
+    bashio::log.warning "Failed to start PostgreSQL. Retrying in $sleep_time seconds..."
+    retry=$((retry + 1))
+    sleep $sleep_time
+  fi
+done
+
+bashio::log.error "Failed to start PostgreSQL after $max_retries attempts."
 
 # Wait for postgres to become available..
 until psql -U "postgres" postgres -c "" 2> /dev/null; do sleep 1; done
