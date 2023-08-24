@@ -28,8 +28,8 @@ options:
   maupybridges:
     - "telegram"
   telegram:
-    api_id: null
-    api_hash: null
+    api_id: ""
+    api_hash: ""
   postgres_max_connections: 400
 
 schema:
@@ -46,9 +46,8 @@ schema:
   maupybridges: # telegram
     - match(^.*(telegram).*$)
   telegram:
-    api_id: str
-    api_hash: str
+    api_id: str?
+    api_hash: str?
   postgres_max_connections: int
 image: "ghcr.io/bertybuttface/{arch}-addon-matrix-ng"
-tmpfs: true
 host_network: true
