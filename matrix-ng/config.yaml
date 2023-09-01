@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: "Matrix NG"
-version: "0.0.8"
+version: "0.0.9"
 slug: "matrix_ng"
 description: >-
   This add-on provides a Matrix server (either Dendrite or Conduit), a frontend (Element)
@@ -13,15 +13,21 @@ ingress: true
 init: false
 map:
   - share:rw
+  - ssl
+ports:
+  8099/tcp: 8099 # element
+  8008/tcp: 8008 # matrix
+  8448/tcp: 8448 # matrix
+  8080/tcp: 8080 # manhole
 options:
   manhole: false
   server_name: "matrix.example.org"
   disable_federation: false
-  hs_url: "http://localhost:8008"
+  hs_url: "https://localhost:8448"
   is_url: "https://vector.im"
   # registration_shared_secret: "your randomly generated long secret"
-  # private_key_pem_path: "/matrix/dendrite/private_key.pem"
-  # public_key_pem_path: "/matrix/dendrite/public_key.pem"
+  private_key: "/ssl/privkey.pem"
+  public_key: "/ssl/fullchain.pem"
   maubridges:
     - "discord"
     - "whatsapp"
@@ -39,8 +45,8 @@ schema:
   hs_url: str
   is_url: str
   # registration_shared_secret: str
-  # private_key_pem_path: str
-  # public_key_pem_path: str
+  private_key: str
+  public_key: str
   maubridges: # discord|gmessages|signalgo|slack|whatsapp
     - match(^.*(discord|whatsapp).*$)
   maupybridges: # telegram
