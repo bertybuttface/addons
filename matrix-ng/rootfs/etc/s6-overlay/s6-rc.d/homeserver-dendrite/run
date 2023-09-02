@@ -32,7 +32,6 @@ fi
 if [ -f $config_file ]; then
     yq eval '.global.database.connection_string = "postgresql://postgres:homeassistant@localhost:5432/dendrite?sslmode=disable"' -i $config_file
     yq eval '.global.server_name = "'$(bashio::config 'server_name')'"' -i $config_file
-    yq eval '.global.private_key = "'$(bashio::config 'private_key')'"' -i $config_file
 fi
 
 # TODO: We can write any other changes to the existing config file here
