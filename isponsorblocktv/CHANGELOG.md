@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.0.2
+
+- Upstream removed the ability to specify config file, trying to use symlink to compensate.
+
 ## 2.0.1
 
 WARNING: If you have issues with the 2.x.x series clear your config and start again.
