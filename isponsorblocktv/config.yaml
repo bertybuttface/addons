@@ -18,7 +18,6 @@ options:
       screen_id: null
       offset: 0
   channel_whitelist: []
-  local_addr: "0.0.0.0:0"
   skip_categories:
     - "sponsor"
   skip_count_tracking: true
@@ -33,7 +32,6 @@ schema:
   channel_whitelist:
     - id: "str"
     - name: "str"
-  local_addr: "str?"
   skip_categories:
     - match(^.*(sponsor|selfpromo|exclusive_access|interaction|poi_highlight|intro|outro|preview|filler|music_offtopic).*$)
   skip_count_tracking: "bool"
