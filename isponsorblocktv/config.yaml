@@ -13,7 +13,6 @@ map:
   - share:rw
 options:
   apikey: null # get youtube apikey: https://developers.google.com/youtube/registering_an_application
-  data_dir: data
   devices: []
   channel_whitelist: []
   skip_categories: []
@@ -22,7 +21,6 @@ options:
   skip_ads: true
 schema:
   apikey: "str"
-  data_dir: "str"
   devices:
     - name: "str?"
       screen_id: "str"
