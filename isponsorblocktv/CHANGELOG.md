@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.0.3
+
+- Fix symlink issue on addon restart
+
 ## 2.0.2
 
 - Upstream removed the ability to specify config file, trying to use symlink to compensate.
