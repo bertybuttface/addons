@@ -17,7 +17,7 @@ ENV PIP_NO_CACHE_DIR=off iSPBTV_docker=True
 
 RUN mkdir /usr/app
 WORKDIR /usr/app
-RUN git clone https://github.com/bertybuttface/iSponsorBlockTV .
+RUN git clone https://github.com/dmunozv04/iSponsorBlockTV .
 
 RUN pip3 install --upgrade pip setuptools-rust wheel && \
     pip3 install -r requirements.txt && \
