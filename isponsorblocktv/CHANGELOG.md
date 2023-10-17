@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.0.4
+
+- Merge upstream
+
 ## 2.0.3
 
 - Fix symlink issue on addon restart
