@@ -8,7 +8,7 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
 This repository contains the following add-ons
 
-## [Matrix NG add-on](./matrix-ng)
+### [Matrix NG add-on](./matrix-ng)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
@@ -21,7 +21,7 @@ _Matrix chat homeservers and bridges._
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports i386 Architecture][i386-shield]
 
-_Skip sponsor segments in YouTube videos playing on an Apple TV._
+_Skip sponsor segments in YouTube videos playing on a YouTube TV device._
 
 ### [Whos At My Feeder](./whosatmyfeeder)
 
