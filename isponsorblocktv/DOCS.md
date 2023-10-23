@@ -1,10 +1,8 @@
 # Home Assistant Add-on: iSponsorBlockTV
 
-You must run iSponsorBLockTV on the same network as the Apple TV. This addon requies host networking.
+Run iSponsorBlockTV on a computer that has network access. Auto discovery will require the computer to be on the same network as the device during setup. This addon uses host networking for this.
 
-It connects to the Apple TV, watches foe activity and skis any sponsor segment using the SponsorBlock API.
-
-The last 5 videos' segments are cached to limit the number on queries on SponsorBlock and YouTube.
+It connects to the device, watches its activity and skips any sponsor segment using the SponsorBlock API. It can also skip/mute YouTube ads.
 
 ## How to use
 
