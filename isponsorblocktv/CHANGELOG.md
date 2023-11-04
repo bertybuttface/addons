@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.0.6
+
+- Bump upstream to add additional logging to debug issues.
+
 ## 2.0.5
 
 - Merge upstream autoplay fix
