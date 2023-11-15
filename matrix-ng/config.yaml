@@ -55,5 +55,6 @@ schema:
     api_id: str?
     api_hash: str?
   postgres_max_connections: int
+stage: "experimental"
 image: "ghcr.io/bertybuttface/{arch}-addon-matrix-ng"
 host_network: true
