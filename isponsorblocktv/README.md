@@ -23,7 +23,7 @@ _Skip sponsor segments in YouTube videos playing on a compatible YouTube TV devi
 | Fire TV            |   ✅    |
 | CCwGTV             |   ✅    |
 | Nintendo Switch    |   ✅    |
-| Xbox One/Series    |   ❔    |
+| Xbox One/Series    |   ✅    |
 | Playstation 4/5    |   ✅    |
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
