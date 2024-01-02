@@ -1,6 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 ## 2.0.7
 
+- Bump upstream to latest
+
+## 2.0.7
+
 - Bump upstream to fix task exception was never retrieved issue.
 
 ## 2.0.6
