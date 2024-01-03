@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.0.9
+
+- Fix major issue with prior release which wasn't tested (apologies)
+
 ## 2.0.8
 
 - Bump upstream to latest
