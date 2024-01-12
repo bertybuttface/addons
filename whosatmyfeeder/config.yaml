@@ -2,6 +2,7 @@
 name: WhosAtMyFeeder add-on
 version: "1.0.12"
 slug: whosatmyfeeder
+stage: deprecated
 description: This app acts as sidecar to Frigate to identify the species of the birds that Frigate detects.
 url: "https://github.com/bertybuttface/addons/tree/main/whosatmyfeeder"
 arch:
