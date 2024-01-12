@@ -8,13 +8,6 @@ Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
 
 This repository contains the following add-ons
 
-### [Matrix NG add-on](./matrix-ng)
-
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-
-_Matrix chat homeservers and bridges._
-
 ### [iSponsorBlockTV add-on](./isponsorblocktv)
 
 ![Supports aarch64 Architecture][aarch64-shield]
@@ -23,13 +16,6 @@ _Matrix chat homeservers and bridges._
 
 _Skip sponsor segments in YouTube videos playing on a YouTube TV device._
 
-### [Whos At My Feeder](./whosatmyfeeder)
-
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-
-_Acts as sidecar to Frigate to identify the species of the birds that Frigate detects._
-
 ### [ZitiTunneller add-on](./isponsorblocktv)
 
 ![Supports aarch64 Architecture][aarch64-shield]
@@ -37,6 +23,28 @@ _Acts as sidecar to Frigate to identify the species of the birds that Frigate de
 ![Supports i386 Architecture][i386-shield]
 
 _Connect to a Ziti overlay network._
+
+## Add-ons in development
+
+These addons are still work in progress and there are likely lots of bugs.
+
+### [Matrix NG add-on](./matrix-ng)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+_Matrix chat homeservers and bridges._
+
+## Deprecated Add-ons
+
+These are no longer maintained and likely do not work.
+
+### [Whos At My Feeder](./whosatmyfeeder)
+
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+_Acts as sidecar to Frigate to identify the species of the birds that Frigate detects._
 
 <!--
 
