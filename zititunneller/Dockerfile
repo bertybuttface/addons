@@ -12,6 +12,9 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
+# renovate: datasource=github-releases depName=openziti/ziti-tunnel-sdk-c
+ARG ZITI_VERSION=v0.22.20
+
 # Copy root filesystem
 COPY rootfs /
 
@@ -25,7 +28,7 @@ RUN apt-get update && apt-get -y install unzip && mkdir /identities \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi \
     && if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="x86_64"; fi \
     && if [ "${BUILD_ARCH}" = "i386" ]; then ARCH="x86_64"; fi \
-    && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/latest/download/ziti-edge-tunnel-Linux_${ARCH}.zip -o /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
+    && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/download/${ZITI_VERSION}/ziti-edge-tunnel-Linux_${ARCH}.zip -o /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && unzip /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && rm /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && chmod -c +x /opt/ziti-edge-tunnel
