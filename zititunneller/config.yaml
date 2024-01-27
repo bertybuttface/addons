@@ -2,7 +2,7 @@
 name: ziti-tunneller
 version: 1.0.5
 slug: zititunneller
-description: Tunnels the homeassistant dashboard into your openziti zero trust network.
+description: Connect to an OpenZiti zero trust overlay network.
 url: https://github.com/bertybuttface/addons/zititunneller
 init: false
 arch:
@@ -11,10 +11,19 @@ arch:
   - armhf
   - armv7
   - i386
+panel_icon: mdi:lightning-bolt-circle
+panel_title: "OpenZiti"
+ingress: true
+ingress_port: 5739
+host_network: true
+privileged:
+  - NET_ADMIN
+devices:
+  - /dev/net/tun
 options:
   log_level: info
-  jwt: ""
+  ziti_enroll_token: ""
 schema:
-  log_level: list(error|warning|info|debug)
-  jwt: str?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  ziti_enroll_token: str?
 image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"

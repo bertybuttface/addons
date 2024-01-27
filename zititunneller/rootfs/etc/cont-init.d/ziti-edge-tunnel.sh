@@ -1,8 +1,8 @@
 #!/command/with-contenv bashio
 # Configure ziti-edge-tunnel before running
 
-# Fetch jwt from config
-JWT="$(bashio::config 'jwt')"
+# Fetch ZITI_ENROLL_TOKEN from config
+ZITI_ENROLL_TOKEN="$(bashio::config 'ziti_enroll_token')"
 
 # Check if ziti-edge-tunnel exists and is executable
 if [ ! -x /opt/ziti-edge-tunnel ]; then
@@ -10,14 +10,14 @@ if [ ! -x /opt/ziti-edge-tunnel ]; then
   exit 1
 fi
 
-# Check if JWT env is set and not empty
-if [ -n "${JWT}" ] && [ "${JWT}" != "null" ]; then
-  echo "JWT is set, enrolling new identity"
+# Check if ZITI_ENROLL_TOKEN env is set and not empty
+if [ -n "${ZITI_ENROLL_TOKEN}" ] && [ "${ZITI_ENROLL_TOKEN}" != "null" ]; then
+  echo "ZITI_ENROLL_TOKEN is set, enrolling new identity"
   # Enroll identity
-  echo "${JWT}" > /identities/default.jwt
-  /opt/ziti-edge-tunnel enroll --jwt /identities/default.jwt --identity /identities/default.json
+  echo "${ZITI_ENROLL_TOKEN}" > /identities/default.ZITI_ENROLL_TOKEN
+  /opt/ziti-edge-tunnel enroll --ZITI_ENROLL_TOKEN /identities/default.ZITI_ENROLL_TOKEN --identity /identities/default.json
 else
-  echo "JWT not set, using stored identity if there is one"
+  echo "ZITI_ENROLL_TOKEN not set, using stored identity if there is one"
   # Check if /identities/default.json exists, if it doesn't error out
   if [ -f "/identities/default.json" ]; then
     echo "Stored identity found at /identities/default.json"

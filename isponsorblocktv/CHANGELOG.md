@@ -1,4 +1,11 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
+## 2.0.10
+
+- Update python 3.10 --> 3.12
+- Update alpine 3.16 --> 3.19
+- Bump upstream to latest
+
 ## 2.0.9
 
 - Fix major issue with prior release which wasn't tested (apologies)
