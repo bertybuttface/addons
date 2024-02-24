@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 2.1.0
+
+- Update upstream to latest with fix for overlapping slots
+
 ## 2.0.10
 
 - Update python 3.10 --> 3.12
