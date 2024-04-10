@@ -2,7 +2,7 @@
 name: WhosAtMyFeeder add-on
 version: "1.1.1"
 slug: whosatmyfeeder
-description: This app acts as sidecar to Frigate to identify the species of the birds that Frigate detects.
+description: This app acts as a sidecar to Frigate to identify the species of the birds that Frigate detects.
 url: "https://github.com/bertybuttface/addons/tree/main/whosatmyfeeder"
 arch:
   - aarch64
