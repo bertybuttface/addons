@@ -1,5 +1,11 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.1.2
+
+- Update icon for sidebar.
+
+If you already have this addon installed you will need to turn "Show in Sidebar" off and then on again or you won't see the new icon / title.
+
 ## 1.1.1
 
 - Incomplete fix applied in 1.1.0 this completes it.
