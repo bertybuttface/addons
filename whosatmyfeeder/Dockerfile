@@ -16,13 +16,14 @@ RUN apt-get update && apt-get -y install \
     ffmpeg \
     libsm6 \
     libxext6 \
-    && curl https://bootstrap.pypa.io/get-pip.py | python3 
+    && curl https://bootstrap.pypa.io/get-pip.py | python3
 
 # Copy root filesystem
 COPY rootfs /
 
 RUN mkdir /usr/app
 WORKDIR /usr/app
+RUN apt-get update && apt-get -y -o Dpkg::Options::="--force-confnew" install nginx
 RUN git clone https://github.com/bertybuttface/WhosAtMyFeeder .
 
 ENV CONFIG_PATH="/data/config.yaml"

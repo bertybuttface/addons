@@ -1,5 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.1.0
+
+- Fix URL issue properly so images etc display.
+- Remove deprecation
+
 ## 1.0.12
 
 - Fix more relative path issues

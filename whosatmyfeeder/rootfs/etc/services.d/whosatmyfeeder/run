@@ -3,7 +3,7 @@
 # Start the whosatmyfeeder service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-bashio::log.info "Starting..."
+bashio::log.info "Starting whosatmyfeeder..."
 
 ## Convert the config file from JSON to YAML
 bashio::log.info "Converting config from JSON to YAML..."
