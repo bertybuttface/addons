@@ -2,7 +2,7 @@
 
 _This app acts as sidecar to Frigate to identify the species of the birds that Frigate detects._
 
-This addon is now deprecated and is in a non-working state. If anyone wants to take over development let me know and I will link to your addon here.
+This addon is not support but it should work. If anyone wants to take over development let me know and I will link to your addon here.
 
 [WhosAtMyFeeder](https://github.com/mmcc-xx/WhosAtMyFeeder/)
 

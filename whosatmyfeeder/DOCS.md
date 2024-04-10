@@ -1,6 +1,6 @@
 # Home Assistant Add-on: WhosAtMyFeeder
 
-This addon is deprecated and is in a non-working state.
+This addon is unsupported but it should work.
 
 As a prerequisite of running this project, you must set up Frigate to detect the 'bird' object in a video stream, and to send out snapshots. This also assumes you have setup a MQTT broker, like Mosquitto MQTT
 

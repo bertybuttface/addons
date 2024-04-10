@@ -1,9 +1,0 @@
-#!/usr/bin/with-contenv bashio
-# ==============================================================================
-# Start the nginx service
-# s6-overlay docs: https://github.com/just-containers/s6-overlay
-# ==============================================================================
-bashio::log.info "Starting nginx to rewrite URLs..."
-
-# Restart nginx
-nginx -s reload

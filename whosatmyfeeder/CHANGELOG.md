@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.1.1
+
+- Incomplete fix applied in 1.1.0 this completes it.
+
 ## 1.1.0
 
 - Fix URL issue properly so images etc display.
