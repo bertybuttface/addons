@@ -20,18 +20,18 @@ options:
   mute_ads: false
   skip_ads: true
 schema:
-  apikey: "str"
+  apikey: password
   devices:
-    - name: "str?"
-      screen_id: "str"
-      offset: "int?"
+    - name: str?
+      screen_id: str
+      offset: int?
   channel_whitelist:
-    - id: "str"
-    - name: "str"
+    - id: str
+    - name: str
   skip_categories:
-    - match(^.*(sponsor|selfpromo|exclusive_access|interaction|poi_highlight|intro|outro|preview|filler|music_offtopic).*$)
-  skip_count_tracking: "bool"
-  mute_ads: "bool"
-  skip_ads: "bool"
+    - list(sponsor|selfpromo|exclusive_access|interaction|poi_highlight|intro|outro|preview|filler|music_offtopic)
+  skip_count_tracking: bool
+  mute_ads: bool
+  skip_ads: bool
 image: "ghcr.io/bertybuttface/{arch}-addon-isponsorblocktv"
 host_network: true
