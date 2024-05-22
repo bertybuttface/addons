@@ -16,4 +16,35 @@ rm -rf /tmp/config && mkdir /tmp/config && docker run --rm -it -v /tmp/config:/a
 
 You can then pick the bits out that you need.
 
+The config file will look something like this:
+
+```json
+{
+    "devices": [
+        {
+            "screen_id": "[YOUR SCREEN-ID]",
+            "name": "YouTube on TV",
+            "offset": 0
+        }
+    ],
+    "apikey": "",
+    "skip_categories": [
+        "sponsor"
+    ],
+    "channel_whitelist": [],
+    "skip_count_tracking": true,
+    "mute_ads": false,
+    "skip_ads": true
+}
+```
+
+You can then transfer the device config over to a YAML config which looks like this:
+
+```yml
+- screen_id: [YOUR SCREEN-ID]
+  name: LG TV
+```
+
+
+
 You must also set a YouTube API key as apikey.
