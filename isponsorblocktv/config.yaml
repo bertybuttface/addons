@@ -19,6 +19,7 @@ options:
   skip_count_tracking: false
   mute_ads: false
   skip_ads: true
+  autoplay: true
 schema:
   apikey: password
   devices:
@@ -33,5 +34,6 @@ schema:
   skip_count_tracking: bool
   mute_ads: bool
   skip_ads: bool
+  autoplay: bool
 image: "ghcr.io/bertybuttface/{arch}-addon-isponsorblocktv"
 host_network: true
