@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.1.1
+
+- Fix Autoplay always enabled issue due to incorrect key in config file. Thanks @suth and @the8thsign
 
 ## 2.1.0
 
