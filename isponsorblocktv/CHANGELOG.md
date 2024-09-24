@@ -1,7 +1,11 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 2.1.2
+
+- Fix --data-dir renamed to --data upstream issue with previous release
+
 ## 2.1.1
 
-- Fix Autoplay always enabled issue due to incorrect key in config file. Thanks @suth and @the8thsign
+- Fix Autoplay always enabled issue due to incorrect key in config file. Thanks @suth and @the8thsign (see: https://github.com/bertybuttface/addons/pull/35 for details)
 
 ## 2.1.0
 
