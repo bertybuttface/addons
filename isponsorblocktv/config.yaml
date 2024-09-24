@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: iSponsorBlockTV add-on
-version: "2.1.1"
+version: "2.1.2"
 slug: isponsorblocktv
 description: SponsorBlock client for all YouTube TV clients.
 url: "https://github.com/bertybuttface/addons/tree/main/isponsorblocktv"
