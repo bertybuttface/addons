@@ -7,4 +7,4 @@ bashio::log.info "Starting..."
 
 ## Run your program
 ln -sf /data/options.json /data/config.json
-python3 -u /app/main.pyc --data-dir /data
+python3 -u /app/main.pyc --data /data
