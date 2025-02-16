@@ -1,4 +1,25 @@
 configuration:
-  message:
-    name: Message
-    description: The message that will be printed to the log when starting this example add-on.
+  apikey:
+    name: YouTube API Key (optional)
+    description: "Get your API key at: https://developers.google.com/youtube/registering_an_application"
+  devices:
+    name: Devices
+    description: "List of devices to monitor. YAML format required: - screen_id: ABC123 (required), name: Living Room TV (optional), offset: 0 (optional, in milliseconds)"
+  channel_whitelist:
+    name: Channel Whitelist
+    description: "List of YouTube channels to exclude from skipping. YAML format required: - id: UC1234567890 (required), name: Channel Name (required)"
+  skip_categories:
+    name: Add categories to skip
+    description: "Add one or more of: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+  skip_count_tracking:
+    name: Skip Count Tracking
+    description: "Enable or disable tracking and reporting of skipped segments to isponsorblock server"
+  mute_ads:
+    name: Mute Ads
+    description: "Mute ads instead of skipping them"
+  skip_ads:
+    name: Skip Ads
+    description: "Automatically skip ads when possible"
+  auto_play:
+    name: Auto Play
+    description: "Enable or disable automatic playback of next video"

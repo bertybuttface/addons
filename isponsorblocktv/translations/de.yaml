@@ -1,0 +1,25 @@
+configuration:
+  apikey:
+    name: YouTube API-Schlüssel (optional)
+    description: "Holen Sie sich Ihren API-Schlüssel unter: https://developers.google.com/youtube/registering_an_application"
+  devices:
+    name: Geräte
+    description: "Liste der zu überwachenden Geräte. YAML-Format erforderlich: - screen_id: ABC123 (erforderlich), name: Wohnzimmer TV (optional), offset: 0 (optional, in Millisekunden)"
+  channel_whitelist:
+    name: Kanal-Whitelist
+    description: "Liste der YouTube-Kanäle, die vom Überspringen ausgenommen werden sollen. YAML-Format erforderlich: - id: UC1234567890 (erforderlich), name: Kanalname (erforderlich)"
+  skip_categories:
+    name: Zu überspringende Kategorien hinzufügen
+    description: "Fügen Sie eine oder mehrere Kategorien hinzu: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+  skip_count_tracking:
+    name: Übersprungene Segmente zählen
+    description: "Aktivieren oder deaktivieren der Erfassung und Meldung übersprungener Segmente an den iSponsorBlock-Server"
+  mute_ads:
+    name: Werbung stummschalten
+    description: "Werbung stummschalten anstatt zu überspringen"
+  skip_ads:
+    name: Werbung überspringen
+    description: "Werbung automatisch überspringen wenn möglich"
+  auto_play:
+    name: Automatische Wiedergabe
+    description: "Automatische Wiedergabe des nächsten Videos aktivieren oder deaktivieren"

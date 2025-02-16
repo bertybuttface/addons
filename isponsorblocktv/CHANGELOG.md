@@ -1,4 +1,17 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
+## 2.2.0
+
+- Add help text to config page (translation PRs highly encouraged)
+- Add automatic translations to config page (de, en, es, fr, ro)
+- Fix schema UI for skip_categories
+- Fix schema for channel whitelisting
+- Fix schema so api_key is not required
+- Switch from pip to uv to speed up builds
+- Update python 3.12 --> 3.13
+- Update alpine 3.19 --> 3.21
+- Update upstream to latest (and a patch for latest aiohttp)
+
 ## 2.1.2
 
 - Fix --data-dir renamed to --data upstream issue with previous release

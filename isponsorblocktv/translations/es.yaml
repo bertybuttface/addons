@@ -1,0 +1,25 @@
+configuration:
+  apikey:
+    name: Clave API de YouTube (opcional)
+    description: "Obtenga su clave API en: https://developers.google.com/youtube/registering_an_application"
+  devices:
+    name: Dispositivos
+    description: "Lista de dispositivos para monitorear. Formato YAML requerido: - screen_id: ABC123 (obligatorio), name: TV Sala (opcional), offset: 0 (opcional, en milisegundos)"
+  channel_whitelist:
+    name: Lista blanca de canales
+    description: "Lista de canales de YouTube excluidos del salto automático. Formato YAML requerido: - id: UC1234567890 (obligatorio), name: Nombre del Canal (obligatorio)"
+  skip_categories:
+    name: Agregar categorías para saltar
+    description: "Agregue una o más categorías: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+  skip_count_tracking:
+    name: Seguimiento de segmentos saltados
+    description: "Activar o desactivar el seguimiento y reporte de segmentos saltados al servidor iSponsorBlock"
+  mute_ads:
+    name: Silenciar anuncios
+    description: "Silenciar anuncios en lugar de saltarlos"
+  skip_ads:
+    name: Saltar anuncios
+    description: "Saltar automáticamente los anuncios cuando sea posible"
+  auto_play:
+    name: Reproducción automática
+    description: "Activar o desactivar la reproducción automática del siguiente video"

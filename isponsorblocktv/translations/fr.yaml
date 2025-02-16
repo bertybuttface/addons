@@ -1,0 +1,25 @@
+configuration:
+  apikey:
+    name: Clé API YouTube (facultatif)
+    description: "Obtenez votre clé API sur : https://developers.google.com/youtube/registering_an_application"
+  devices:
+    name: Appareils
+    description: "Liste des appareils à surveiller. Format YAML requis: - screen_id: ABC123 (obligatoire), name: TV Salon (facultatif), offset: 0 (facultatif, en millisecondes)"
+  channel_whitelist:
+    name: Liste blanche des chaînes
+    description: "Liste des chaînes YouTube à exclure du saut automatique. Format YAML requis: - id: UC1234567890 (obligatoire), name: Nom de la Chaîne (obligatoire)"
+  skip_categories:
+    name: Ajouter des catégories à sauter
+    description: "Ajoutez une ou plusieurs catégories : sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+  skip_count_tracking:
+    name: Suivi du nombre de sauts
+    description: "Activer ou désactiver le suivi et le rapport des segments sautés au serveur isponsorblock"
+  mute_ads:
+    name: Couper le son des publicités
+    description: "Couper le son des publicités au lieu de les sauter"
+  skip_ads:
+    name: Sauter les publicités
+    description: "Sauter automatiquement les publicités lorsque possible"
+  auto_play:
+    name: Lecture automatique
+    description: "Activer ou désactiver la lecture automatique de la vidéo suivante"

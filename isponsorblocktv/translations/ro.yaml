@@ -1,0 +1,25 @@
+configuration:
+  apikey:
+    name: Cheie API YouTube (opțional)
+    description: "Obțineți cheia API de la: https://developers.google.com/youtube/registering_an_application"
+  devices:
+    name: Dispozitive
+    description: "Lista dispozitivelor de monitorizat. Format YAML necesar: - screen_id: ABC123 (obligatoriu), name: TV Camera de zi (opțional), offset: 0 (opțional, în milisecunde)"
+  channel_whitelist:
+    name: Lista albă de canale
+    description: "Lista canalelor YouTube excluse de la omitere. Format YAML necesar: - id: UC1234567890 (obligatoriu), name: Numele Canalului (obligatoriu)"
+  skip_categories:
+    name: Adăugați categorii de omis
+    description: "Adăugați una sau mai multe categorii: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+  skip_count_tracking:
+    name: Urmărirea segmentelor omise
+    description: "Activați sau dezactivați urmărirea și raportarea segmentelor omise către serverul iSponsorBlock"
+  mute_ads:
+    name: Dezactivare sunet reclame
+    description: "Dezactivați sunetul reclamelor în loc să le omiteți"
+  skip_ads:
+    name: Omitere reclame
+    description: "Omiteți automat reclamele când este posibil"
+  auto_play:
+    name: Redare automată
+    description: "Activați sau dezactivați redarea automată a următorului videoclip"
