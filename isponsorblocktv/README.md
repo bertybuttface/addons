@@ -17,7 +17,7 @@ _Skip sponsor segments in YouTube videos playing on a compatible YouTube TV devi
 | Samsung TV (Tizen) |   ✅    |
 | LG TV (WebOS)      |   ✅    |
 | Android TV         |   ✅    |
-| Chromecast         |   ❔    |
+| Chromecast         |   ✅    |
 | Google TV          |   ✅    |
 | Roku               |   ✅    |
 | Fire TV            |   ✅    |
@@ -25,6 +25,7 @@ _Skip sponsor segments in YouTube videos playing on a compatible YouTube TV devi
 | Nintendo Switch    |   ✅    |
 | Xbox One/Series    |   ✅    |
 | Playstation 4/5    |   ✅    |
+
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
