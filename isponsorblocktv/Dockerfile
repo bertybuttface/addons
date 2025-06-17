@@ -8,7 +8,7 @@ ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=0
 WORKDIR /app
 RUN git clone https://github.com/dmunozv04/iSponsorBlockTV /repo
 RUN cp -r /repo/src/* /app/ && cp /repo/requirements.txt /app/
-RUN uv pip install --system -r requirements.txt
+RUN uv pip install --system --index-strategy unsafe-best-match -r requirements.txt
 # TODO: we need the below as UV_COMPILE_BYTECODE=1 is not working as expected, remove once fixed
 RUN python3 -m compileall -b -f . && \
     find . -name "*.py" -type f -delete
