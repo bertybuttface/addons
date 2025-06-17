@@ -1,5 +1,14 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+# Changelog
+
+## 2.3.0
+
+- Update upstream to latest
+- Remove patch for aiohttp, now included upstream
+- Add minimum_skip_length config option to skip segments shorter than this value (in seconds)
+- Add join_name config option to show the name of the device when connecting / disconnecting
+
 ## 2.2.0
 
 - Add help text to config page (translation PRs highly encouraged)

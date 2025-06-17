@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: iSponsorBlockTV add-on
-version: "2.2.0"
+version: "2.3.0"
 slug: isponsorblocktv
 description: SponsorBlock client for all YouTube TV clients.
 url: "https://github.com/bertybuttface/addons/tree/main/isponsorblocktv"
@@ -19,6 +19,8 @@ options:
   mute_ads: false
   skip_ads: true
   auto_play: true
+  minimum_skip_length: 1
+  join_name: "iSponsorBlockTV"
 schema:
   apikey: password? # get youtube apikey: https://developers.google.com/youtube/registering_an_application
   devices:
@@ -34,5 +36,7 @@ schema:
   mute_ads: bool
   skip_ads: bool
   auto_play: bool
+  minimum_skip_length: int?
+  join_name: str?
 image: "ghcr.io/bertybuttface/{arch}-addon-isponsorblocktv"
 host_network: true
