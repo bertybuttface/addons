@@ -2,6 +2,12 @@
 
 # Changelog
 
+## 2.6.0
+
+- Update upstream to latest (2.6.0)
+- Maintain Raspberry Pi 4 support via aarch64 architecture
+- Enhanced compatibility and bug fixes from upstream
+
 ## 2.3.0
 
 - Update upstream to latest
