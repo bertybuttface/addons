@@ -61,6 +61,9 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.init.outputs.changed == 'true'
     name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
+    permissions:
+      contents: read
+      packages: write
     strategy:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
@@ -79,6 +82,9 @@ jobs:
       - name: Check if add-on should be built
         id: check
         run: |
+          if [[ "${{ steps.info.outputs.image }}" == "null" ]]; then
+            echo "image=ghcr.io/${{ github.repository_owner }}/${{ matrix.addon }}" >> $GITHUB_OUTPUT;
+          fi
           if [[ "${{ steps.info.outputs.architectures }}" =~ ${{ matrix.arch }} ]]; then
              echo "build_arch=true" >> $GITHUB_OUTPUT;
              echo "image=$(echo ${{ steps.info.outputs.image }} | cut -d'/' -f3)" >> $GITHUB_OUTPUT;
