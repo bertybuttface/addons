@@ -12,7 +12,6 @@ This repository contains the following add-ons
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports i386 Architecture][i386-shield]
 
 _Skip sponsor segments in YouTube videos playing on a YouTube TV device._
 
@@ -27,20 +26,12 @@ _Acts as sidecar to Frigate to identify the species of the birds that Frigate de
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports i386 Architecture][i386-shield]
 
 _Connect to a Ziti overlay network._
 
 ## Add-ons in development
 
 These addons are still work in progress and there are likely lots of bugs.
-
-### [Matrix NG add-on](./matrix-ng)
-
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-
-_Matrix chat homeservers and bridges._
 
 ## Deprecated Add-ons
 
