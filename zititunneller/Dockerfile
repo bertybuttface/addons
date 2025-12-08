@@ -13,7 +13,7 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # renovate: datasource=github-releases depName=openziti/ziti-tunnel-sdk-c
-ARG ZITI_VERSION=v0.22.20
+ARG ZITI_VERSION=v1.9.7
 
 # Copy root filesystem
 COPY rootfs /

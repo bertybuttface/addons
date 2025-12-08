@@ -2,15 +2,15 @@
 
 ## 1.1.0
 
-This release includes the following breaking changes:
+**Breaking Changes:**
+- Configuration key `jwt` renamed to `ziti_enroll_token` for clarity
+  - **Action required:** Update your addon configuration to use `ziti_enroll_token` instead of `jwt`
 
-- JWT config entry renamed to ZITI_ENROLL_TOKEN
-
-as well as other major changes you need to be aware of:
-
-- Add host networking
-- Add NET_ADMIN
-- Add /dev/net/tun
+**Major Updates:**
+- Update OpenZiti ziti-edge-tunnel from v0.22.20 to v1.9.7 (major version upgrade)
+- Migrate to modern s6-overlay v3 s6-rc directory structure
+- Use oneshot service for initialization and longrun for main tunnel daemon
+- Improved service dependency management with proper ordering
 
 ## 1.0.5
 
