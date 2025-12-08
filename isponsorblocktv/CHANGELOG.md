@@ -2,6 +2,10 @@
 
 # Changelog
 
+## 2.4.0
+
+- Update upstream to latest.
+
 ## 2.3.0
 
 - Update upstream to latest
