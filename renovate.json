@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s(?:ARG|ENV) .*?_VERSION=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["openziti/ziti-tunnel-sdk-c"],
+      "automerge": false,
+      "prTitle": "Update OpenZiti to {{newVersion}}",
+      "prBodyTemplate": "This PR updates the OpenZiti ziti-edge-tunnel binary from {{currentVersion}} to {{newVersion}}.\n\n## Manual Steps Required\n\nRenovate automatically updates `ZITI_VERSION` in the Dockerfile. **You must manually update:**\n\n1. `zititunneller/config.yaml` - bump the `version` field\n2. `zititunneller/CHANGELOG.md` - add release notes\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n- [{{version}}]({{releaseUrl}})\n{{/each}}\n{{/if}}\n\n---\n\n**Please test the addon after merging!**",
+      "addLabels": ["dependencies", "ziti"]
+    }
+  ]
+}
