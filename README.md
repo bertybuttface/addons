@@ -15,7 +15,7 @@ This repository contains the following add-ons
 
 _Skip sponsor segments in YouTube videos playing on a YouTube TV device._
 
-### [ZitiTunneller add-on](./isponsorblocktv)
+### [ZitiTunneller add-on](./zititunneller)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
