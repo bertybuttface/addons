@@ -24,6 +24,4 @@ schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   ziti_enroll_token: str?
   jwt: str?  # Deprecated: Use ziti_enroll_token instead
-map:
-  - identities:rw
 image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"
