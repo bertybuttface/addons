@@ -12,7 +12,10 @@ ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=0
 WORKDIR /app
 RUN git clone --branch ${ISPONSORBLOCKTV_VERSION} --depth 1 https://github.com/dmunozv04/iSponsorBlockTV /repo
 RUN cp -r /repo/src/* /app/ && cp /repo/requirements.txt /app/
-RUN uv pip install --system --index-strategy unsafe-best-match -r requirements.txt
+# Install build dependencies temporarily (needed for aiohttp), matching upstream approach
+RUN apk add --no-cache gcc musl-dev \
+    && uv pip install --system --index-strategy unsafe-best-match -r requirements.txt \
+    && apk del gcc musl-dev
 # TODO: we need the below as UV_COMPILE_BYTECODE=1 is not working as expected, remove once fixed
 RUN python3 -m compileall -b -f . && \
     find . -name "*.py" -type f -delete
