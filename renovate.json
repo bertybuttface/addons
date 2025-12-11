@@ -18,7 +18,8 @@
       "matchStrings": [
         "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+):(?<currentValue>[a-z0-9.-]+)"
       ],
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "loose"
     },
     {
       "description": "Update tempio version in build.yaml",
