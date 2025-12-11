@@ -4,7 +4,6 @@ version: 1.1.0
 slug: zititunneller
 description: Connect Home Assistant to an OpenZiti zero trust overlay network. Community-maintained wrapper around openziti/ziti-tunnel-sdk-c providing secure, private networking without exposing your instance to the internet.
 url: https://github.com/bertybuttface/addons/tree/main/zititunneller
-upstream: https://github.com/openziti/ziti-tunnel-sdk-c
 init: false
 arch:
   - aarch64
