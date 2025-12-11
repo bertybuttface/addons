@@ -2,15 +2,16 @@
 
 # Changelog
 
-## 2.5.0
+## 2.6.1
 
-**Major Updates:**
+**Addon Changes:**
 - Pin iSponsorBlockTV to tagged release v2.6.1 (instead of tracking main branch)
 - Migrate to modern s6-overlay v3 s6-rc directory structure
 - Use shallow git clone for faster builds
 - Improved reproducibility with versioned source code
+- Align addon version with upstream iSponsorBlockTV version
 
-**Upstream Changes (v2.6.1):**
+**Upstream iSponsorBlockTV v2.6.1:**
 - Added proxy functionality
 - Docker support for legacy architectures (i386 and armv6)
 - Fixed recurring device connection issues

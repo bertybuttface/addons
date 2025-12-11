@@ -37,8 +37,18 @@
       "matchPackageNames": ["openziti/ziti-tunnel-sdk-c"],
       "automerge": false,
       "prTitle": "Update OpenZiti to {{newVersion}}",
-      "prBodyTemplate": "This PR updates the OpenZiti ziti-edge-tunnel binary from {{currentVersion}} to {{newVersion}}.\n\n## Manual Steps Required\n\nRenovate automatically updates `ZITI_VERSION` in the Dockerfile. **You must manually update:**\n\n1. `zititunneller/config.yaml` - bump the `version` field\n2. `zititunneller/CHANGELOG.md` - add release notes\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n- [{{version}}]({{releaseUrl}})\n{{/each}}\n{{/if}}\n\n---\n\n**Please test the addon after merging!**",
-      "addLabels": ["dependencies", "ziti"]
+      "prBodyTemplate": "This PR updates the OpenZiti ziti-edge-tunnel binary from {{currentVersion}} to {{newVersion}}.\n\n## Automated Changes\n\nRenovate has automatically updated:\n- ✅ `zititunneller/Dockerfile` - Updated `ZITI_VERSION` to {{newVersion}}\n- ✅ `zititunneller/config.yaml` - Bumped addon minor version\n- ✅ `zititunneller/CHANGELOG.md` - Added release notes from upstream\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n### [{{version}}]({{releaseUrl}})\n{{body}}\n{{/each}}\n{{/if}}\n\n---\n\n**Ready to merge after testing!** This PR is fully automated - no manual edits needed.",
+      "addLabels": ["dependencies", "ziti"],
+      "postUpgradeTasks": {
+        "commands": [
+          "bash .github/scripts/update-zititunneller.sh"
+        ],
+        "fileFilters": [
+          "zititunneller/config.yaml",
+          "zititunneller/CHANGELOG.md"
+        ],
+        "executionMode": "update"
+      }
     },
     {
       "description": "Group Home Assistant base image updates by addon",
@@ -61,8 +71,18 @@
       "matchPackageNames": ["dmunozv04/iSponsorBlockTV"],
       "automerge": false,
       "prTitle": "Update iSponsorBlockTV to {{newVersion}}",
-      "prBodyTemplate": "This PR updates the iSponsorBlockTV source from {{currentVersion}} to {{newVersion}}.\n\n## Manual Steps Required\n\nRenovate automatically updates `ISPONSORBLOCKTV_VERSION` in the Dockerfile. **You must manually update:**\n\n1. `isponsorblocktv/config.yaml` - bump the `version` field\n2. `isponsorblocktv/CHANGELOG.md` - add release notes\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n- [{{version}}]({{releaseUrl}})\n{{/each}}\n{{/if}}\n\n---\n\n**Please test the addon after merging!**",
-      "addLabels": ["dependencies", "isponsorblocktv"]
+      "prBodyTemplate": "This PR updates the iSponsorBlockTV source from {{currentVersion}} to {{newVersion}}.\n\n## Automated Changes\n\nRenovate has automatically updated:\n- ✅ `isponsorblocktv/Dockerfile` - Updated `ISPONSORBLOCKTV_VERSION` to {{newVersion}}\n- ✅ `isponsorblocktv/config.yaml` - Bumped addon version to match upstream\n- ✅ `isponsorblocktv/CHANGELOG.md` - Added release notes from upstream\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n### [{{version}}]({{releaseUrl}})\n{{body}}\n{{/each}}\n{{/if}}\n\n---\n\n**Ready to merge after testing!** This PR is fully automated - no manual edits needed.",
+      "addLabels": ["dependencies", "isponsorblocktv"],
+      "postUpgradeTasks": {
+        "commands": [
+          "bash .github/scripts/update-isponsorblocktv.sh"
+        ],
+        "fileFilters": [
+          "isponsorblocktv/config.yaml",
+          "isponsorblocktv/CHANGELOG.md"
+        ],
+        "executionMode": "update"
+      }
     }
   ]
 }
