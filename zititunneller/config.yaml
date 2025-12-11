@@ -2,7 +2,7 @@
 name: ziti-tunneller
 version: 1.1.0
 slug: zititunneller
-description: Connect to an OpenZiti zero trust overlay network.
+description: Connect to an OpenZiti zero trust overlay network
 url: https://github.com/bertybuttface/addons/zititunneller
 init: false
 arch:

@@ -2,7 +2,7 @@
 name: iSponsorBlockTV add-on
 version: "2.6.1"
 slug: isponsorblocktv
-description: SponsorBlock client for all YouTube TV clients.
+description: SponsorBlock client for all YouTube TV clients
 url: "https://github.com/bertybuttface/addons/tree/main/isponsorblocktv"
 arch:
   - aarch64
