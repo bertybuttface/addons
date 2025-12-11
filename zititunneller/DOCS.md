@@ -1,24 +1,31 @@
 # Home Assistant Add-on: zititunneller
 
-This addon lets you connect your homeassistant to an existing [ZITI](https://openziti.github.io/) network.
-It contains an ziti-tunneller which you can configure through your ZITI controller.
+**Community-maintained Home Assistant addon wrapper around [OpenZiti ziti-tunnel-sdk-c](https://github.com/openziti/ziti-tunnel-sdk-c)**
+
+This addon connects your Home Assistant instance to an [OpenZiti](https://openziti.io/) zero trust overlay network. OpenZiti provides secure, encrypted networking without requiring port forwarding, VPNs, or exposing your Home Assistant instance directly to the internet.
+
+## What is OpenZiti?
+
+OpenZiti is an open-source zero trust networking platform that creates secure, encrypted overlay networks. It allows you to:
+
+- Access your Home Assistant remotely without opening firewall ports
+- Connect services across different networks securely
+- Apply zero trust principles (never trust, always verify)
+- Eliminate the need for traditional VPNs
+
+This addon runs the OpenZiti edge tunnel client, which you configure through your OpenZiti controller.
 
 ## Installation
 
-Copy the `zititunneller` folder into the `/addons/` folder of your Home Assistant OS installation.
-
-*Note: For the addon to appear initially, the supervisor has to be restarted (use the ha-cli).*
-
-*For updates to appear, use the "Check for updates" button in the Addon-Store*
-
-### SCP commands (for reference)
-```bash
-scp -r zititunneller homeassistant:/addons/ && scp CHANGELOG.md homeassistant:/addons/zititunneller/
-```
+Add this repository to your Home Assistant add-on store, then install the "ziti-tunneller" addon from the store.
 
 ## Configuration
 
-You only need to add the JWT your ZITI controller generates when you add a new identity.
+To connect to your OpenZiti network, you need an enrollment token (JWT) from your OpenZiti controller. This token is generated when you create a new identity in your OpenZiti network.
+
+1. Create an identity in your OpenZiti controller
+2. Download the JWT enrollment token
+3. Paste the JWT content into the addon configuration
 
 **Note**: _Remember to restart the add-on when the configuration is changed._
 
@@ -49,10 +56,7 @@ you are troubleshooting.
 
 ### Option: `jwt`
 
-The content of the jwt file you can download from the ZAC or your controller returns after creating a new identity.
-
-## Development
-**IMPORTANT:** *You need to adjust the version number in `zititunneller/config.yaml` manually!*
+The content of the jwt file you can download from the ZAC (OpenZiti Administration Console) or your controller returns after creating a new identity.
 
 ## Authors & contributors
 

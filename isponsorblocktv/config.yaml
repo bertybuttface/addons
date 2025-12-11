@@ -2,8 +2,9 @@
 name: iSponsorBlockTV add-on
 version: "2.6.1"
 slug: isponsorblocktv
-description: SponsorBlock client for all YouTube TV clients
+description: Skip sponsor segments in YouTube videos playing on YouTube TV devices using the SponsorBlock API. Community-maintained wrapper around dmunozv04/iSponsorBlockTV.
 url: "https://github.com/bertybuttface/addons/tree/main/isponsorblocktv"
+upstream: "https://github.com/dmunozv04/iSponsorBlockTV"
 arch:
   - aarch64
   - amd64

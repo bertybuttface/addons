@@ -1,8 +1,19 @@
 # Home Assistant Add-on: iSponsorBlockTV
 
-Run iSponsorBlockTV on a computer that has network access. Auto discovery will require the computer to be on the same network as the device during setup. This addon uses host networking for this.
+**Community-maintained Home Assistant addon wrapper around [dmunozv04/iSponsorBlockTV](https://github.com/dmunozv04/iSponsorBlockTV)**
 
-It connects to the device, watches its activity and skips any sponsor segment using the SponsorBlock API. It can also skip/mute YouTube ads.
+This addon automatically skips sponsor segments in YouTube videos playing on YouTube TV devices. It connects to your YouTube TV (Smart TV, Chromecast, etc.), monitors video playback, and uses the [SponsorBlock](https://sponsor.block/) crowdsourced database to skip sponsored segments. It can also skip or mute YouTube ads.
+
+## Features
+
+- Automatically skip sponsor segments using SponsorBlock API
+- Skip or mute YouTube video ads
+- Support for multiple YouTube TV devices
+- Channel whitelisting
+- Configurable skip categories (sponsor, selfpromo, intro, outro, etc.)
+- Host networking for automatic device discovery
+
+This addon runs iSponsorBlockTV and requires network access to communicate with your YouTube TV devices. Auto-discovery requires the addon to be on the same network as your devices during initial setup.
 
 ## How to use
 
