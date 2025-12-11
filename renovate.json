@@ -54,6 +54,15 @@
       "matchPackageNames": ["home-assistant/tempio"],
       "automerge": false,
       "addLabels": ["dependencies"]
+    },
+    {
+      "description": "iSponsorBlockTV updates for isponsorblocktv addon",
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["dmunozv04/iSponsorBlockTV"],
+      "automerge": false,
+      "prTitle": "Update iSponsorBlockTV to {{newVersion}}",
+      "prBodyTemplate": "This PR updates the iSponsorBlockTV source from {{currentVersion}} to {{newVersion}}.\n\n## Manual Steps Required\n\nRenovate automatically updates `ISPONSORBLOCKTV_VERSION` in the Dockerfile. **You must manually update:**\n\n1. `isponsorblocktv/config.yaml` - bump the `version` field\n2. `isponsorblocktv/CHANGELOG.md` - add release notes\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n- [{{version}}]({{releaseUrl}})\n{{/each}}\n{{/if}}\n\n---\n\n**Please test the addon after merging!**",
+      "addLabels": ["dependencies", "isponsorblocktv"]
     }
   ]
 }

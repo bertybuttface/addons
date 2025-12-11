@@ -2,6 +2,22 @@
 
 # Changelog
 
+## 2.5.0
+
+**Major Updates:**
+- Pin iSponsorBlockTV to tagged release v2.6.1 (instead of tracking main branch)
+- Migrate to modern s6-overlay v3 s6-rc directory structure
+- Use shallow git clone for faster builds
+- Improved reproducibility with versioned source code
+
+**Upstream Changes (v2.6.1):**
+- Added proxy functionality
+- Docker support for legacy architectures (i386 and armv6)
+- Fixed recurring device connection issues
+- Improved ad muting and skipping functionality
+- Configurable minimum skip duration
+- Various dependency updates for security and compatibility
+
 ## 2.4.0
 
 - Update upstream to latest.
