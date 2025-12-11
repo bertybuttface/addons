@@ -16,10 +16,18 @@
       "description": "Update Home Assistant base images in build.yaml",
       "fileMatch": ["^.+/build\\.yaml$"],
       "matchStrings": [
-        "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+):(?<currentValue>[a-z0-9.-]+)"
+        "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+):(?<currentValue>\\d+\\.\\d+-alpine\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)-alpine(?<patch>\\d+)\\.(?<build>\\d+)$"
+    },
+    {
+      "description": "Update Home Assistant Debian base images in build.yaml",
+      "fileMatch": ["^.+/build\\.yaml$"],
+      "matchStrings": [
+        "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+-base-debian):(?<currentValue>[a-z]+)"
+      ],
+      "datasourceTemplate": "docker"
     },
     {
       "description": "Update tempio version in build.yaml",
