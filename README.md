@@ -1,41 +1,89 @@
-# Berty Buttface's Home Assistant add-on repository
+<div align="center">
 
-Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
+# Home Assistant Community Add-ons
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fbertybuttface%2Faddons)
+**Community-maintained add-ons for Home Assistant**
 
-## Add-ons
+[![License](https://img.shields.io/github/license/bertybuttface/addons?style=flat-square)](LICENSE)
+[![GitHub Activity](https://img.shields.io/github/commit-activity/m/bertybuttface/addons?style=flat-square)](https://github.com/bertybuttface/addons/commits/main)
+[![GitHub Issues](https://img.shields.io/github/issues/bertybuttface/addons?style=flat-square)](https://github.com/bertybuttface/addons/issues)
 
-This repository contains the following add-ons
+[![Add Repository](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fbertybuttface%2Faddons)
 
-### [iSponsorBlockTV add-on](./isponsorblocktv)
+</div>
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
+---
 
-_Skip sponsor segments in YouTube videos playing on a YouTube TV device._
+## Available Add-ons
 
-### [ZitiTunneller add-on](./zititunneller)
+### 🎬 [iSponsorBlockTV](./isponsorblocktv)
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
+[![Version](https://img.shields.io/badge/version-2.6.1-blue?style=flat-square)](./isponsorblocktv/CHANGELOG.md)
+![aarch64](https://img.shields.io/badge/aarch64-yes-success?style=flat-square)
+![amd64](https://img.shields.io/badge/amd64-yes-success?style=flat-square)
 
-_Connect to a Ziti overlay network._
+Automatically skip sponsor segments in YouTube videos on YouTube TV devices using the SponsorBlock API. Community wrapper around [dmunozv04/iSponsorBlockTV](https://github.com/dmunozv04/iSponsorBlockTV).
 
-## Add-ons in development
+**Features:**
+- Automatic sponsor segment skipping via SponsorBlock
+- YouTube ad skipping and muting
+- Multi-device support
+- Channel whitelisting
+- Configurable skip categories
 
-These addons are still work in progress and there are likely lots of bugs.
+[📖 Documentation](./isponsorblocktv/DOCS.md) • [📝 Changelog](./isponsorblocktv/CHANGELOG.md)
+
+---
+
+### 🔒 [OpenZiti Tunneller](./zititunneller)
+
+[![Version](https://img.shields.io/badge/version-1.2.0-blue?style=flat-square)](./zititunneller/CHANGELOG.md)
+![aarch64](https://img.shields.io/badge/aarch64-yes-success?style=flat-square)
+![amd64](https://img.shields.io/badge/amd64-yes-success?style=flat-square)
+
+Connect Home Assistant to an OpenZiti zero trust overlay network. Community wrapper around [openziti/ziti-tunnel-sdk-c](https://github.com/openziti/ziti-tunnel-sdk-c).
+
+**Features:**
+- Zero trust networking without port forwarding
+- Secure encrypted connections
+- No VPN required
+- Private overlay network access
+- Remote access without exposing to internet
+
+[📖 Documentation](./zititunneller/DOCS.md) • [📝 Changelog](./zititunneller/CHANGELOG.md)
+
+---
+
+## Installation
+
+Click the badge above or add this repository URL in Home Assistant:
+
+```
+https://github.com/bertybuttface/addons
+```
+
+Then install add-ons from **Settings** → **Add-ons** → **Add-on Store**.
+
+---
+
+## Support
+
+- 📖 [Home Assistant Add-on Documentation](https://developers.home-assistant.io/docs/add-ons)
+- 🐛 [Report Issues](https://github.com/bertybuttface/addons/issues)
+- 💬 [Community Forum](https://community.home-assistant.io/)
+
+---
 
 ## Deprecated Add-ons
 
-These are no longer maintained and likely do not work.
+<details>
+<summary>⚠️ No longer maintained</summary>
 
-### [Whos At My Feeder](./whosatmyfeeder)
+### Whos At My Feeder
 
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
+Bird species identification sidecar for Frigate. **No longer maintained.**
 
-_Acts as sidecar to Frigate to identify the species of the birds that Frigate detects._
+</details>
 
 <!--
 
