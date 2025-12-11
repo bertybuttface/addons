@@ -24,8 +24,6 @@ WORKDIR /opt
 RUN apt-get update && apt-get -y install unzip && mkdir /identities \
 && if [ -z "${BUILD_ARCH}" ]; then export BUILD_ARCH=$(uname -m); fi \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
-    && if [ "${BUILD_ARCH}" = "armhf" ]; then ARCH="arm"; fi \
-    && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="arm"; fi \
     && if [ "${BUILD_ARCH}" = "amd64" ]; then ARCH="x86_64"; fi \
     && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/download/${ZITI_VERSION}/ziti-edge-tunnel-Linux_${ARCH}.zip -o /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && unzip /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \

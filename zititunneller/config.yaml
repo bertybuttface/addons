@@ -8,8 +8,6 @@ init: false
 arch:
   - aarch64
   - amd64
-  - armhf
-  - armv7
 panel_icon: mdi:lightning-bolt-circle
 panel_title: "OpenZiti"
 ingress: true
