@@ -5,21 +5,55 @@
   ],
   "regexManagers": [
     {
+      "description": "Update ARG versions with renovate comments in Dockerfiles",
       "fileMatch": ["(^|/)Dockerfile$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s(?:ARG|ENV) .*?_VERSION=(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "description": "Update Home Assistant base images in build.yaml",
+      "fileMatch": ["^.+/build\\.yaml$"],
+      "matchStrings": [
+        "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+):(?<currentValue>[a-z0-9.-]+)"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "description": "Update tempio version in build.yaml",
+      "fileMatch": ["^.+/build\\.yaml$"],
+      "matchStrings": [
+        "TEMPIO_VERSION:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "home-assistant/tempio"
     }
   ],
   "packageRules": [
     {
+      "description": "OpenZiti updates for zititunneller addon",
       "matchDatasources": ["github-releases"],
       "matchPackageNames": ["openziti/ziti-tunnel-sdk-c"],
       "automerge": false,
       "prTitle": "Update OpenZiti to {{newVersion}}",
       "prBodyTemplate": "This PR updates the OpenZiti ziti-edge-tunnel binary from {{currentVersion}} to {{newVersion}}.\n\n## Manual Steps Required\n\nRenovate automatically updates `ZITI_VERSION` in the Dockerfile. **You must manually update:**\n\n1. `zititunneller/config.yaml` - bump the `version` field\n2. `zititunneller/CHANGELOG.md` - add release notes\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n- [{{version}}]({{releaseUrl}})\n{{/each}}\n{{/if}}\n\n---\n\n**Please test the addon after merging!**",
       "addLabels": ["dependencies", "ziti"]
+    },
+    {
+      "description": "Group Home Assistant base image updates by addon",
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ["^ghcr\\.io/home-assistant/.*-base-"],
+      "groupName": "home-assistant-base-images",
+      "automerge": false,
+      "prTitle": "Update Home Assistant base images",
+      "addLabels": ["dependencies", "base-images"]
+    },
+    {
+      "description": "Tempio updates",
+      "matchPackageNames": ["home-assistant/tempio"],
+      "automerge": false,
+      "addLabels": ["dependencies"]
     }
   ]
 }
