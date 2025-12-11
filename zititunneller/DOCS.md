@@ -33,7 +33,7 @@ Example add-on configuration:
 
 ```yaml
 log_level: info
-jwt: ...
+ziti_enroll_token: eyJhbGci...
 ```
 
 ### Option: `log_level`
@@ -54,9 +54,11 @@ more severe level, e.g., `debug` also shows `info` messages. By default,
 the `log_level` is set to `info`, which is the recommended setting unless
 you are troubleshooting.
 
-### Option: `jwt`
+### Option: `ziti_enroll_token`
 
-The content of the jwt file you can download from the ZAC (OpenZiti Administration Console) or your controller returns after creating a new identity.
+The enrollment token (JWT format) that you receive when creating a new identity in your OpenZiti controller. You can obtain this from the ZAC (OpenZiti Administration Console) or directly from your controller.
+
+**Note:** This token is only needed for initial enrollment. After successful enrollment, the identity is saved and the token can be removed from the configuration.
 
 ## Authors & contributors
 

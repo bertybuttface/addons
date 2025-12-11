@@ -59,3 +59,25 @@ You can then transfer the device config over to a YAML config which looks like t
 
 
 You must also set a YouTube API key as apikey.
+
+## Troubleshooting
+
+### No devices discovered
+- Ensure the addon is using host networking (already configured by default)
+- Verify your YouTube TV device is on the same network as your Home Assistant instance
+- Check if the device is powered on and connected to your network
+- Try restarting the addon after ensuring the device is online
+
+### YouTube API key issues
+- Verify your API key is correctly entered in the configuration
+- Ensure you have enabled the YouTube Data API v3 in your Google Cloud Console
+- Check that your API key has the correct permissions
+- Visit [Google's YouTube API documentation](https://developers.google.com/youtube/registering_an_application) for setup instructions
+
+### Segments not being skipped
+- Verify the video has sponsor segments in the SponsorBlock database
+- Check that your `skip_categories` configuration includes the type of segment you want to skip
+- Review addon logs for any errors or connection issues
+- Ensure `skip_ads` is set to `true` if you want ads skipped
+
+For more help, check the [upstream project's documentation](https://github.com/dmunozv04/iSponsorBlockTV) or open an issue on the [addon repository](https://github.com/bertybuttface/addons/issues).

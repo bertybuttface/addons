@@ -1,6 +1,6 @@
 ---
 name: ziti-tunneller
-version: 1.1.0
+version: 1.2.0
 slug: zititunneller
 description: Connect Home Assistant to an OpenZiti zero trust overlay network. Community-maintained wrapper around openziti/ziti-tunnel-sdk-c providing secure, private networking without exposing your instance to the internet.
 url: https://github.com/bertybuttface/addons/tree/main/zititunneller
@@ -23,4 +23,7 @@ options:
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   ziti_enroll_token: str?
+  jwt: str?  # Deprecated: Use ziti_enroll_token instead
+map:
+  - identities:rw
 image: "ghcr.io/bertybuttface/{arch}-addon-zititunneller"

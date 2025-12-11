@@ -4,7 +4,15 @@
 
 ## 2.6.1
 
-**Addon Changes:**
+**Addon Quality Improvements:**
+- Add HEALTHCHECK to Docker container for better monitoring
+- Enhanced error handling and validation in startup scripts
+- Improved logging with debug-level output for troubleshooting
+- Add comprehensive troubleshooting section to documentation
+- Verify data directory and config symlink creation before startup
+- Better error messages for common setup issues
+
+**Previous Addon Changes:**
 - Pin iSponsorBlockTV to tagged release v2.6.1 (instead of tracking main branch)
 - Migrate to modern s6-overlay v3 s6-rc directory structure
 - Use shallow git clone for faster builds

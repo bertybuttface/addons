@@ -27,3 +27,7 @@ COPY --from=compiler /usr/bin/tempio /usr/bin/tempio
 COPY --from=compiler /app .
 COPY --from=compiler /usr/local/lib/python*/site-packages /usr/local/lib/python3.13/site-packages/
 COPY rootfs/ /
+
+# Healthcheck to verify the service is running
+HEALTHCHECK --interval=60s --timeout=10s --start-period=60s --retries=3 \
+  CMD pgrep -f "python3.*main.pyc" > /dev/null || exit 1

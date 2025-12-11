@@ -20,6 +20,12 @@ COPY rootfs /
 
 WORKDIR /opt
 
+# Healthcheck to verify tunnel is operational
+HEALTHCHECK --interval=60s --timeout=10s --start-period=90s --retries=3 \
+  CMD /opt/ziti-edge-tunnel version > /dev/null 2>&1 && \
+      [ -f /identities/default.json ] && \
+      pgrep -f "ziti-edge-tunnel run" > /dev/null || exit 1
+
 # Setup
 RUN apt-get update && apt-get -y install unzip && mkdir /identities \
 && if [ -z "${BUILD_ARCH}" ]; then export BUILD_ARCH=$(uname -m); fi \
@@ -28,7 +34,9 @@ RUN apt-get update && apt-get -y install unzip && mkdir /identities \
     && curl -sSL https://github.com/openziti/ziti-tunnel-sdk-c/releases/download/${ZITI_VERSION}/ziti-edge-tunnel-Linux_${ARCH}.zip -o /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && unzip /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
     && rm /opt/ziti-edge-tunnel-Linux_${ARCH}.zip \
-    && chmod -c +x /opt/ziti-edge-tunnel
+    && chmod -c +x /opt/ziti-edge-tunnel \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Labels
 LABEL \

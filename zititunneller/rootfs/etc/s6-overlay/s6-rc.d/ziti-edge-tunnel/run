@@ -1,11 +1,14 @@
 #!/command/with-contenv bashio
 
-# Translate log level
+# Translate log level from Home Assistant to OpenZiti verbosity levels
 case "$(bashio::config 'log_level')" in
+  fatal)
+    LOG_LEVEL="0"
+    ;;
   error)
     LOG_LEVEL="1"
     ;;
-  warning)
+  warning | notice)
     LOG_LEVEL="2"
     ;;
   info)
@@ -14,11 +17,24 @@ case "$(bashio::config 'log_level')" in
   debug)
     LOG_LEVEL="4"
     ;;
+  trace)
+    LOG_LEVEL="5"
+    ;;
   *)
-    LOG_LEVEL="3"
+    LOG_LEVEL="3"  # Default to info
     ;;
 esac
 
+bashio::log.info "Starting OpenZiti edge tunnel..."
+bashio::log.debug "Log level: ${LOG_LEVEL}"
+bashio::log.debug "Identity file: /identities/default.json"
+
+# Verify identity file exists before starting
+if [ ! -f /identities/default.json ]; then
+  bashio::log.error "Identity file not found at /identities/default.json"
+  bashio::log.error "Enrollment may have failed in the configure step"
+  exit 1
+fi
+
 # Run ziti-edge-tunnel
-bashio::log.info 'Starting ziti-edge-tunnel...'
 exec /opt/ziti-edge-tunnel run-host --verbose ${LOG_LEVEL} --identity /identities/default.json

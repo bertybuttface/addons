@@ -3,8 +3,24 @@
 # Start the isponsorblocktv service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-bashio::log.info "Starting..."
+bashio::log.info "Starting iSponsorBlockTV..."
 
-## Run your program
-ln -sf /data/options.json /data/config.json
-python3 -u /app/main.pyc --data /data
+# Ensure data directory exists
+if [ ! -d /data ]; then
+  bashio::log.error "Data directory /data does not exist"
+  exit 1
+fi
+
+# Create symlink from options.json to config.json with error handling
+bashio::log.debug "Creating configuration symlink..."
+if ! ln -sf /data/options.json /data/config.json; then
+  bashio::log.error "Failed to create symlink from options.json to config.json"
+  exit 1
+fi
+
+bashio::log.info "Configuration ready, starting application..."
+bashio::log.debug "Data directory: /data"
+bashio::log.debug "Config file: /data/config.json"
+
+# Run the application
+exec python3 -u /app/main.pyc --data /data

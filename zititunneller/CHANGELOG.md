@@ -1,5 +1,19 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.2.0
+
+**Quality Improvements:**
+- Add backwards compatibility for deprecated `jwt` configuration field
+  - Users still using `jwt` will see a warning but the addon will work
+  - Please migrate to `ziti_enroll_token` when convenient
+- Add HEALTHCHECK to Docker container for better monitoring
+- Implement secure token handling with temporary files and restricted permissions
+- Add JWT format validation before enrollment attempts
+- Complete log level support: added trace, notice, and fatal levels
+- Enhanced error handling and logging throughout startup scripts
+- Improved error messages for common issues (invalid token, network issues, etc.)
+- Add identity file verification before starting tunnel service
+
 ## 1.1.0
 
 **Breaking Changes:**

@@ -1,29 +1,70 @@
 #!/command/with-contenv bashio
 # Configure ziti-edge-tunnel before running
 
-# Fetch ZITI_ENROLL_TOKEN from config
-ZITI_ENROLL_TOKEN="$(bashio::config 'ziti_enroll_token')"
+bashio::log.info "Configuring OpenZiti edge tunnel..."
 
 # Check if ziti-edge-tunnel exists and is executable
 if [ ! -x /opt/ziti-edge-tunnel ]; then
-  echo "Error: /opt/ziti-edge-tunnel not found or not executable"
+  bashio::log.error "/opt/ziti-edge-tunnel not found or not executable"
   exit 1
 fi
 
-# Check if ZITI_ENROLL_TOKEN env is set and not empty
+# Fetch ZITI_ENROLL_TOKEN from config (with backwards compatibility for old 'jwt' field)
+ZITI_ENROLL_TOKEN="$(bashio::config 'ziti_enroll_token')"
+DEPRECATED_JWT="$(bashio::config 'jwt')"
+
+# Backwards compatibility: if jwt is set but ziti_enroll_token is not, use jwt
+if [ -z "${ZITI_ENROLL_TOKEN}" ] || [ "${ZITI_ENROLL_TOKEN}" = "null" ]; then
+  if [ -n "${DEPRECATED_JWT}" ] && [ "${DEPRECATED_JWT}" != "null" ]; then
+    bashio::log.warning "The 'jwt' configuration field is deprecated. Please use 'ziti_enroll_token' instead."
+    ZITI_ENROLL_TOKEN="${DEPRECATED_JWT}"
+  fi
+fi
+
+# Check if ZITI_ENROLL_TOKEN is set and not empty
 if [ -n "${ZITI_ENROLL_TOKEN}" ] && [ "${ZITI_ENROLL_TOKEN}" != "null" ]; then
-  echo "ZITI_ENROLL_TOKEN is set, enrolling new identity"
-  # Enroll identity
-  echo "${ZITI_ENROLL_TOKEN}" > /identities/default.ZITI_ENROLL_TOKEN
-  /opt/ziti-edge-tunnel enroll --ZITI_ENROLL_TOKEN /identities/default.ZITI_ENROLL_TOKEN --identity /identities/default.json
-else
-  echo "ZITI_ENROLL_TOKEN not set, using stored identity if there is one"
-  # Check if /identities/default.json exists, if it doesn't error out
-  if [ -f "/identities/default.json" ]; then
-    echo "Stored identity found at /identities/default.json"
+  bashio::log.info "Enrollment token provided, enrolling new identity..."
+
+  # Basic JWT format validation (should have 3 parts separated by dots)
+  if ! echo "${ZITI_ENROLL_TOKEN}" | grep -qE '^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$'; then
+    bashio::log.error "Invalid enrollment token format"
+    bashio::log.error "Expected a JWT token with format: header.payload.signature"
+    exit 1
+  fi
+
+  # Create a temporary file with restricted permissions
+  TEMP_TOKEN_FILE=$(mktemp /identities/temp-token.XXXXXX)
+  chmod 600 "${TEMP_TOKEN_FILE}"
+
+  # Trap to ensure cleanup on exit
+  trap "rm -f '${TEMP_TOKEN_FILE}'" EXIT
+
+  # Write token to secure temporary file
+  echo "${ZITI_ENROLL_TOKEN}" > "${TEMP_TOKEN_FILE}"
+
+  # Enroll and capture output
+  if /opt/ziti-edge-tunnel enroll --jwt "${TEMP_TOKEN_FILE}" --identity /identities/default.json 2>&1; then
+    bashio::log.info "Successfully enrolled OpenZiti identity"
   else
-    echo "Error: No stored identity found at /identities/default.json" >&2
-    ls /identities
+    bashio::log.error "Ziti enrollment failed. Possible causes:"
+    bashio::log.error "  - Invalid or expired enrollment token"
+    bashio::log.error "  - OpenZiti controller unreachable"
+    bashio::log.error "  - Network connectivity issues"
+    exit 1
+  fi
+
+  # Token file is automatically cleaned up by trap
+else
+  bashio::log.info "No enrollment token provided, checking for existing identity..."
+
+  # Check if /identities/default.json exists
+  if [ -f "/identities/default.json" ]; then
+    bashio::log.info "Using existing identity at /identities/default.json"
+  else
+    bashio::log.error "No identity found and no enrollment token provided"
+    bashio::log.error "Please provide a ziti_enroll_token in the addon configuration"
     exit 1
   fi
 fi
+
+bashio::log.info "OpenZiti configuration complete"
