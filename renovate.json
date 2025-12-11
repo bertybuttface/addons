@@ -3,18 +3,24 @@
   "extends": [
     "config:recommended"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update ARG versions with renovate comments in Dockerfiles",
-      "fileMatch": ["(^|/)Dockerfile$"],
+      "managerFilePatterns": [
+        "/(^|/)Dockerfile$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s(?:ARG|ENV) .*?_VERSION=(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
+      "customType": "regex",
       "description": "Update Home Assistant base images in build.yaml",
-      "fileMatch": ["^.+/build\\.yaml$"],
+      "managerFilePatterns": [
+        "/^.+/build\\.yaml$/"
+      ],
       "matchStrings": [
         "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+):(?<currentValue>\\d+\\.\\d+-alpine\\d+\\.\\d+)"
       ],
@@ -22,16 +28,22 @@
       "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)-alpine(?<patch>\\d+)\\.(?<build>\\d+)$"
     },
     {
+      "customType": "regex",
       "description": "Update Home Assistant Debian base images in build.yaml",
-      "fileMatch": ["^.+/build\\.yaml$"],
+      "managerFilePatterns": [
+        "/^.+/build\\.yaml$/"
+      ],
       "matchStrings": [
         "(?<depName>ghcr\\.io/home-assistant/[a-z0-9-]+-base-debian):(?<currentValue>[a-z]+)"
       ],
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "description": "Update tempio version in build.yaml",
-      "fileMatch": ["^.+/build\\.yaml$"],
+      "managerFilePatterns": [
+        "/^.+/build\\.yaml$/"
+      ],
       "matchStrings": [
         "TEMPIO_VERSION:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
       ],
@@ -42,12 +54,19 @@
   "packageRules": [
     {
       "description": "OpenZiti updates for zititunneller addon",
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["openziti/ziti-tunnel-sdk-c"],
+      "matchDatasources": [
+        "github-releases"
+      ],
+      "matchPackageNames": [
+        "openziti/ziti-tunnel-sdk-c"
+      ],
       "automerge": false,
       "prTitle": "Update OpenZiti to {{newVersion}}",
       "prBodyTemplate": "This PR updates the OpenZiti ziti-edge-tunnel binary from {{currentVersion}} to {{newVersion}}.\n\n## Automated Changes\n\nRenovate has automatically updated:\n- ✅ `zititunneller/Dockerfile` - Updated `ZITI_VERSION` to {{newVersion}}\n- ✅ `zititunneller/config.yaml` - Bumped addon minor version\n- ✅ `zititunneller/CHANGELOG.md` - Added release notes from upstream\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n### [{{version}}]({{releaseUrl}})\n{{body}}\n{{/each}}\n{{/if}}\n\n---\n\n**Ready to merge after testing!** This PR is fully automated - no manual edits needed.",
-      "addLabels": ["dependencies", "ziti"],
+      "addLabels": [
+        "dependencies",
+        "ziti"
+      ],
       "postUpgradeTasks": {
         "commands": [
           "bash .github/scripts/update-zititunneller.sh"
@@ -61,27 +80,45 @@
     },
     {
       "description": "Group Home Assistant base image updates by addon",
-      "matchDatasources": ["docker"],
-      "matchPackagePatterns": ["^ghcr\\.io/home-assistant/.*-base-"],
+      "matchDatasources": [
+        "docker"
+      ],
       "groupName": "home-assistant-base-images",
       "automerge": false,
       "prTitle": "Update Home Assistant base images",
-      "addLabels": ["dependencies", "base-images"]
+      "addLabels": [
+        "dependencies",
+        "base-images"
+      ],
+      "matchPackageNames": [
+        "/^ghcr\\.io/home-assistant/.*-base-/"
+      ]
     },
     {
       "description": "Tempio updates",
-      "matchPackageNames": ["home-assistant/tempio"],
+      "matchPackageNames": [
+        "home-assistant/tempio"
+      ],
       "automerge": false,
-      "addLabels": ["dependencies"]
+      "addLabels": [
+        "dependencies"
+      ]
     },
     {
       "description": "iSponsorBlockTV updates for isponsorblocktv addon",
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["dmunozv04/iSponsorBlockTV"],
+      "matchDatasources": [
+        "github-releases"
+      ],
+      "matchPackageNames": [
+        "dmunozv04/iSponsorBlockTV"
+      ],
       "automerge": false,
       "prTitle": "Update iSponsorBlockTV to {{newVersion}}",
       "prBodyTemplate": "This PR updates the iSponsorBlockTV source from {{currentVersion}} to {{newVersion}}.\n\n## Automated Changes\n\nRenovate has automatically updated:\n- ✅ `isponsorblocktv/Dockerfile` - Updated `ISPONSORBLOCKTV_VERSION` to {{newVersion}}\n- ✅ `isponsorblocktv/config.yaml` - Bumped addon version to match upstream\n- ✅ `isponsorblocktv/CHANGELOG.md` - Added release notes from upstream\n\n## Release Notes\n{{#if releases}}\n{{#each releases}}\n### [{{version}}]({{releaseUrl}})\n{{body}}\n{{/each}}\n{{/if}}\n\n---\n\n**Ready to merge after testing!** This PR is fully automated - no manual edits needed.",
-      "addLabels": ["dependencies", "isponsorblocktv"],
+      "addLabels": [
+        "dependencies",
+        "isponsorblocktv"
+      ],
       "postUpgradeTasks": {
         "commands": [
           "bash .github/scripts/update-isponsorblocktv.sh"
