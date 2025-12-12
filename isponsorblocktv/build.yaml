@@ -1,7 +1,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 build_from:
-  aarch64: "ghcr.io/home-assistant/aarch64-base-python:3.13-alpine3.21"
-  amd64: "ghcr.io/home-assistant/amd64-base-python:3.13-alpine3.21"
+  aarch64: "ghcr.io/home-assistant/aarch64-base-python:3.14-alpine3.23"
+  amd64: "ghcr.io/home-assistant/amd64-base-python:3.14-alpine3.23"
 labels:
   org.opencontainers.image.title: "Home Assistant Add-on: iSponsorBlockTV add-on"
   org.opencontainers.image.description: "Skip sponsor segments in YouTube videos playing on an Apple TV."
