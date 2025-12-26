@@ -2,6 +2,12 @@
 
 # Changelog
 
+## 2.6.2
+
+- Fix missing `rich_click` module error by refactoring Dockerfile to use `uv sync`
+- Update to Python 3.14 / Alpine 3.23
+- Patch aiohttp to 3.13.2 for Python 3.14 wheel availability
+
 ## 2.6.1
 
 **Addon Quality Improvements:**
