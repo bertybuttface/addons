@@ -8,11 +8,10 @@ ARG ISPONSORBLOCKTV_VERSION=v2.6.1
 RUN apk add --no-cache uv git gcc musl-dev
 
 WORKDIR /app
+# TODO: remove sed once upstream merges Python 3.14 fix
 RUN git clone --branch ${ISPONSORBLOCKTV_VERSION} --depth 1 \
-    https://github.com/dmunozv04/iSponsorBlockTV .
-
-# TODO: remove once upstream merges Python 3.14 fix
-RUN sed -i 's/aiohttp==3.12.15/aiohttp==3.13.2/' requirements.txt
+    https://github.com/dmunozv04/iSponsorBlockTV . \
+    && sed -i 's/aiohttp==3.12.15/aiohttp==3.13.2/' requirements.txt
 
 # uv sync reads pyproject.toml, creates .venv, installs all dependencies
 RUN uv sync --no-dev --no-editable --index-strategy unsafe-best-match
