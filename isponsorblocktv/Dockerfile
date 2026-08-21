@@ -3,7 +3,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM AS builder
 
 # renovate: datasource=github-releases depName=dmunozv04/iSponsorBlockTV
-ARG ISPONSORBLOCKTV_VERSION=v2.9.0
+ARG ISPONSORBLOCKTV_VERSION=v2.11.0
 
 RUN apk add --no-cache uv git gcc musl-dev
 
