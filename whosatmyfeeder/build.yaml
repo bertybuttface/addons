@@ -8,4 +8,4 @@ labels:
   org.opencontainers.image.source: "https://github.com/dmunozv04/WhosAtMyFeeder"
   org.opencontainers.image.licenses: "GNU General Public License v3.0"
 args:
-  TEMPIO_VERSION: "2021.09.0"
+  TEMPIO_VERSION: "2026.07.0"
