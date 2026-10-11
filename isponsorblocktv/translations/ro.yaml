@@ -10,7 +10,7 @@ configuration:
     description: "Lista canalelor YouTube excluse de la omitere. Format YAML necesar: - id: UC1234567890 (obligatoriu), name: Numele Canalului (obligatoriu)"
   skip_categories:
     name: Adăugați categorii de omis
-    description: "Adăugați una sau mai multe categorii: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+    description: "Adăugați una sau mai multe categorii: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic, hook"
   skip_count_tracking:
     name: Urmărirea segmentelor omise
     description: "Activați sau dezactivați urmărirea și raportarea segmentelor omise către serverul iSponsorBlock"

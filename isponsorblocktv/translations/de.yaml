@@ -10,7 +10,7 @@ configuration:
     description: "Liste der YouTube-Kanäle, die vom Überspringen ausgenommen werden sollen. YAML-Format erforderlich: - id: UC1234567890 (erforderlich), name: Kanalname (erforderlich)"
   skip_categories:
     name: Zu überspringende Kategorien hinzufügen
-    description: "Fügen Sie eine oder mehrere Kategorien hinzu: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+    description: "Fügen Sie eine oder mehrere Kategorien hinzu: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic, hook"
   skip_count_tracking:
     name: Übersprungene Segmente zählen
     description: "Aktivieren oder deaktivieren der Erfassung und Meldung übersprungener Segmente an den iSponsorBlock-Server"

@@ -2,6 +2,21 @@
 
 # Changelog
 
+## 2.11.0
+
+**Addon Changes:**
+- Update iSponsorBlockTV to v2.11.0 (previous add-on release bundled v2.6.1)
+- Allow the `hook` (Hook/Greetings) skip category
+- An empty `skip_categories` list now means "skip no segments" (e.g. to only skip or mute ads), matching upstream. New installs default to `sponsor`, and existing installs with an empty list are switched to `sponsor` on first start, so nothing changes for them
+- Validate `skip_categories` entries exactly; partial matches such as `sponsors` are now rejected instead of being silently ignored
+- Remove the aiohttp patch from the Dockerfile; upstream now pins a Python 3.14-compatible aiohttp
+
+**Upstream iSponsorBlockTV v2.7.0 – v2.11.0 highlights:**
+- Respect an empty `skip_categories` list instead of forcing `sponsor`
+- Warning for the deprecated screen ID format; improved pairing and auto discovery, including older Chromecasts
+- Hook/Greetings category in the configurators; alternative SponsorBlock API URLs
+- Security fix for a blind SSRF in DIAL auto discovery (v2.11.0; affects the setup wizard, which this add-on does not run)
+
 ## 2.6.2
 
 - Fix missing `rich_click` module error by refactoring Dockerfile to use `uv sync`

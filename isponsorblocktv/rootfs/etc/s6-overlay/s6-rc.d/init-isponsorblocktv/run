@@ -1,0 +1,50 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Generate the iSponsorBlockTV configuration from the add-on options
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+readonly MIGRATION_PENDING=/data/.skip_categories_migration_pending
+
+# Saves skip_categories: [sponsor] and returns whether it was stored.
+# TODO: once the base image ships bashio >= 0.18, switch to bashio::app.option,
+# which reports a failed save itself, and drop the read-back check.
+save_sponsor() {
+  # The setter prints the empty API response; bashio logs are not on stdout
+  bashio::addon.option 'skip_categories' '^["sponsor"]' > /dev/null || return 1
+  [[ "$(bashio::addon.options | jq -c '.skip_categories')" == '["sponsor"]' ]]
+}
+
+# Ensure data directory exists
+if [[ ! -d /data ]]; then
+  bashio::log.error "Data directory /data does not exist"
+  exit 1
+fi
+
+# One-time migration for installs upgraded from add-on 2.6.2 or older. Those versions
+# bundled iSponsorBlockTV v2.6.1 or older, where an empty skip_categories meant "sponsor";
+# since v2.7.0 it means "skip nothing". They also symlinked /data/config.json to options.json,
+# which marks such an install. Save [sponsor] for it once, so these users keep skipping
+# sponsors and see it in the UI. A failed save is retried on the next start.
+filter='.'
+if [[ -L /data/config.json || -e "${MIGRATION_PENDING}" ]]; then
+  rm -f /data/config.json
+  if jq -e '.skip_categories == []' /data/options.json > /dev/null; then
+    bashio::log.notice "Setting skip_categories to [sponsor], which is what an empty list meant before 2.11.0"
+    # The Supervisor rewrites options.json from the saved options only on the next start
+    filter='.skip_categories = ["sponsor"]'
+    if save_sponsor; then
+      rm -f "${MIGRATION_PENDING}"
+    else
+      touch "${MIGRATION_PENDING}"
+      bashio::log.warning "Could not save skip_categories; retrying on the next start"
+    fi
+  else
+    rm -f "${MIGRATION_PENDING}"
+  fi
+fi
+
+bashio::log.debug "Creating configuration file..."
+if ! jq "${filter}" /data/options.json > /data/config.json; then
+  bashio::log.error "Failed to create config.json from options.json"
+  exit 1
+fi

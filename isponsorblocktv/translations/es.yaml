@@ -10,7 +10,7 @@ configuration:
     description: "Lista de canales de YouTube excluidos del salto automático. Formato YAML requerido: - id: UC1234567890 (obligatorio), name: Nombre del Canal (obligatorio)"
   skip_categories:
     name: Agregar categorías para saltar
-    description: "Agregue una o más categorías: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+    description: "Agregue una o más categorías: sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic, hook"
   skip_count_tracking:
     name: Seguimiento de segmentos saltados
     description: "Activar o desactivar el seguimiento y reporte de segmentos saltados al servidor iSponsorBlock"

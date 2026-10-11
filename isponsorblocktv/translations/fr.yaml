@@ -10,7 +10,7 @@ configuration:
     description: "Liste des chaînes YouTube à exclure du saut automatique. Format YAML requis: - id: UC1234567890 (obligatoire), name: Nom de la Chaîne (obligatoire)"
   skip_categories:
     name: Ajouter des catégories à sauter
-    description: "Ajoutez une ou plusieurs catégories : sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic"
+    description: "Ajoutez une ou plusieurs catégories : sponsor, selfpromo, exclusive_access, interaction, poi_highlight, intro, outro, preview, filler, music_offtopic, hook"
   skip_count_tracking:
     name: Suivi du nombre de sauts
     description: "Activer ou désactiver le suivi et le rapport des segments sautés au serveur isponsorblock"
